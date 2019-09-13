@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HUL-f3-U5D">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="KDf-KI-Jj2">
+            <objects>
+                <tabBarController id="HUL-f3-U5D" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="ZAJ-ln-pyC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.76078444720000005" green="0.23529419300000001" blue="0.53333342080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="FdV-nM-buA" kind="relationship" relationship="viewControllers" id="mlM-Pu-Skw"/>
+                        <segue destination="oZT-kP-nDD" kind="relationship" relationship="viewControllers" id="VZs-Wu-IdZ"/>
+                        <segue destination="Bnv-5m-zbH" kind="relationship" relationship="viewControllers" id="nVx-oB-xHj"/>
+                        <segue destination="I8Q-CB-M0N" kind="relationship" relationship="viewControllers" id="vi1-fd-DMD"/>
+                        <segue destination="h1i-d6-E7P" kind="relationship" relationship="viewControllers" id="Jk1-GI-0Oh"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Cf-ku-pBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2310" y="1079"/>
+        </scene>
+        <!--Exchange-->
+        <scene sceneID="VuH-Gn-oIS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Exchange" id="FdV-nM-buA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Trocas" image="Troca icone" id="e3x-a5-Wwc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7US-Kt-1pj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1724" y="821"/>
+        </scene>
+        <!--Customizations-->
+        <scene sceneID="Ol7-Cg-Wz9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Customizations" id="oZT-kP-nDD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Customizações" image="Customizacao icone" id="pzN-Rq-8gm"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="09f-da-1al" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1631" y="888"/>
+        </scene>
+        <!--Control-->
+        <scene sceneID="YzE-mH-4IA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Control" id="Bnv-5m-zbH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Controle" image="Controle icone" id="6ea-f5-fZ6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KFo-NZ-tVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1724" y="987"/>
+        </scene>
+        <!--Events-->
+        <scene sceneID="2TE-Nb-V34">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Events" id="I8Q-CB-M0N" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Eventos" image="Eventos icone" id="OQi-pj-8JW"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GPp-tj-2xo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1680" y="1078"/>
+        </scene>
+        <!--Perfil-->
+        <scene sceneID="W19-aD-A4c">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Perfil" id="h1i-d6-E7P" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Perfil" image="perfil" id="Tbh-Ry-IWh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9iM-CY-Gey" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1766" y="1289"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Controle icone" width="27.5" height="26"/>
+        <image name="Customizacao icone" width="27.5" height="27.5"/>
+        <image name="Eventos icone" width="26" height="28"/>
+        <image name="Troca icone" width="27" height="28"/>
+        <image name="perfil" width="26" height="26"/>
+    </resources>
+</document>

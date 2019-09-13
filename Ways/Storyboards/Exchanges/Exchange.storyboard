@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XhU-E8-CZg">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Trocas-->
+        <scene sceneID="x56-2p-oH6">
+            <objects>
+                <tableViewController id="Q9p-b1-bhV" customClass="ExchangeController" customModule="Ways" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Aay-r9-5SS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trocaCell" rowHeight="136" id="CFn-19-gOG" customClass="ExchangeCell" customModule="Ways" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="136"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CFn-19-gOG" id="x4o-KC-WKe">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="136"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Xn-gt-Yiv">
+                                            <rect key="frame" x="20" y="16" width="108" height="108"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="108" id="SMk-xd-YQS"/>
+                                                <constraint firstAttribute="height" constant="108" id="fUe-zQ-GR4"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome da peça" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUc-gb-MGZ">
+                                            <rect key="frame" x="144" y="25" width="250" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condicao" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUy-Ch-6An">
+                                            <rect key="frame" x="170" y="60" width="224" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="condition icon" translatesAutoresizingMaskIntoConstraints="NO" id="HCz-i9-xo4">
+                                            <rect key="frame" x="144" y="61.5" width="18" height="18"/>
+                                            <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="18" id="9Po-fd-89X"/>
+                                                <constraint firstAttribute="width" constant="18" id="kwD-lg-mH0"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="preference icon" translatesAutoresizingMaskIntoConstraints="NO" id="tT0-Iq-cMF">
+                                            <rect key="frame" x="144" y="95.5" width="18" height="18"/>
+                                            <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="18" id="Ab2-3c-4cW"/>
+                                                <constraint firstAttribute="height" constant="18" id="Npi-gU-kA5"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preferencia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyo-5o-Dvm">
+                                            <rect key="frame" x="170" y="94" width="224" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="zUy-Ch-6An" secondAttribute="trailing" constant="20" id="0eU-YF-Wz8"/>
+                                        <constraint firstItem="tUc-gb-MGZ" firstAttribute="top" secondItem="x4o-KC-WKe" secondAttribute="topMargin" constant="14" id="5Yp-zk-QNO"/>
+                                        <constraint firstItem="HCz-i9-xo4" firstAttribute="leading" secondItem="1Xn-gt-Yiv" secondAttribute="trailing" constant="16" id="6e8-fu-OBf"/>
+                                        <constraint firstAttribute="trailing" secondItem="eyo-5o-Dvm" secondAttribute="trailing" constant="20" id="8MM-PK-MWQ"/>
+                                        <constraint firstItem="tT0-Iq-cMF" firstAttribute="leading" secondItem="1Xn-gt-Yiv" secondAttribute="trailing" constant="16" id="8p2-NW-aAa"/>
+                                        <constraint firstItem="tT0-Iq-cMF" firstAttribute="top" secondItem="HCz-i9-xo4" secondAttribute="bottom" constant="16" id="HKb-DN-pXU"/>
+                                        <constraint firstAttribute="trailing" secondItem="tUc-gb-MGZ" secondAttribute="trailing" constant="20" id="Nk3-Tx-B81"/>
+                                        <constraint firstItem="1Xn-gt-Yiv" firstAttribute="leading" secondItem="x4o-KC-WKe" secondAttribute="leading" constant="20" id="TN5-zp-ijP"/>
+                                        <constraint firstItem="1Xn-gt-Yiv" firstAttribute="top" secondItem="x4o-KC-WKe" secondAttribute="top" constant="16" id="aPe-8u-9zd"/>
+                                        <constraint firstItem="tUc-gb-MGZ" firstAttribute="leading" secondItem="1Xn-gt-Yiv" secondAttribute="trailing" constant="16" id="b9E-en-hAR"/>
+                                        <constraint firstItem="eyo-5o-Dvm" firstAttribute="centerY" secondItem="tT0-Iq-cMF" secondAttribute="centerY" id="cgS-bD-c8k"/>
+                                        <constraint firstAttribute="bottom" secondItem="1Xn-gt-Yiv" secondAttribute="bottom" constant="3.5" id="gHB-kK-xrc"/>
+                                        <constraint firstItem="HCz-i9-xo4" firstAttribute="top" secondItem="tUc-gb-MGZ" secondAttribute="bottom" constant="16" id="hFs-EF-J8f"/>
+                                        <constraint firstItem="eyo-5o-Dvm" firstAttribute="leading" secondItem="tT0-Iq-cMF" secondAttribute="trailing" constant="8" id="jTI-Sc-dTt"/>
+                                        <constraint firstItem="zUy-Ch-6An" firstAttribute="leading" secondItem="HCz-i9-xo4" secondAttribute="trailing" constant="8" id="uOi-c6-Sg9"/>
+                                        <constraint firstItem="zUy-Ch-6An" firstAttribute="centerY" secondItem="HCz-i9-xo4" secondAttribute="centerY" id="x5f-vs-BQl"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="clotheImage" destination="1Xn-gt-Yiv" id="gNx-5G-aq2"/>
+                                    <outlet property="clotheLabel" destination="tUc-gb-MGZ" id="5jU-S0-31F"/>
+                                    <outlet property="conditionLabel" destination="zUy-Ch-6An" id="K4m-ju-r8O"/>
+                                    <outlet property="preferenceLabel" destination="eyo-5o-Dvm" id="SV9-uj-nPQ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="Q9p-b1-bhV" id="Dmc-uR-6h8"/>
+                            <outlet property="delegate" destination="Q9p-b1-bhV" id="ZAs-CX-EOo"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Trocas" largeTitleDisplayMode="always" id="OGM-q0-Tps">
+                        <barButtonItem key="backBarButtonItem" title="Voltar" id="aSV-Z5-fHr"/>
+                        <barButtonItem key="rightBarButtonItem" image="Add Icon " id="jo1-Nt-QJl">
+                            <color key="tintColor" red="0.76078444720000005" green="0.23529419300000001" blue="0.53333342080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="M9d-pD-Wuh" kind="show" identifier="novaTroca" id="M9f-xA-MtV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="ZAE-wv-0h8" kind="show" identifier="detailView" id="rQA-2y-Wvj"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PW2-41-XlN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-435" y="-336"/>
+        </scene>
+        <!--ItemExchange-->
+        <scene sceneID="dtT-zp-1CI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ItemExchange" id="ZAE-wv-0h8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EAM-W5-wh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="163" y="-453"/>
+        </scene>
+        <!--AddExchange-->
+        <scene sceneID="bFy-c3-s4U">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddExchange" id="M9d-pD-Wuh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ihq-4M-F4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="-186"/>
+        </scene>
+        <!--Troca-->
+        <scene sceneID="YY1-nS-1Go">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XhU-E8-CZg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Troca" image="Troca icone" id="85e-o8-y17"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7km-pc-QA6">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Q9p-b1-bhV" kind="relationship" relationship="rootViewController" id="jIK-qp-EPm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pR1-sA-FAc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1278.2608695652175" y="-336.16071428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Add Icon " width="22" height="22"/>
+        <image name="Troca icone" width="27" height="28"/>
+        <image name="condition icon" width="18.5" height="18.5"/>
+        <image name="preference icon" width="13" height="12"/>
+    </resources>
+</document>

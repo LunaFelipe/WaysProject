@@ -36,7 +36,7 @@ class CustomDetail: UIViewController {
 
         if let oCustom = self.custom {
             customTitleDetail.text = oCustom.title
-            priceDetail.text = oCustom.costs
+            priceDetail.text = "R$ \(oCustom.costs)"
             timeDetail.text = oCustom.time
             imgDetail.image = oCustom.photo
             descriptionDetail.text = oCustom.description

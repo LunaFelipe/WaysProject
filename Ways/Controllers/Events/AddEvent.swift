@@ -38,6 +38,7 @@ class AddEvent: UITableViewController, UIImagePickerControllerDelegate, UINaviga
 
         toolbar.setItems([cancelButton,spaceButton,doneButton], animated: false)
 
+        toolbar.tintColor = #colorLiteral(red: 0.7607844472, green: 0.235294193, blue: 0.5333334208, alpha: 1)
         dataTextField.inputAccessoryView = toolbar
         dataTextField.inputView = datePicker
 
@@ -46,7 +47,7 @@ class AddEvent: UITableViewController, UIImagePickerControllerDelegate, UINaviga
     @objc func donedatePicker(){
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "EEEE, d MM, yyyy"
         dataTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
@@ -62,15 +63,15 @@ class AddEvent: UITableViewController, UIImagePickerControllerDelegate, UINaviga
 ////        imagePicker.sourceType = UIImagePickerController.SourceType.savedPhotosAlbum
 //        self.present(imagePicker, animated: true, completion: nil)
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
             self.openCamera()
         }))
         
-        alert.addAction(UIAlertAction(title: "Choose Photo", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Galeria", style: .default, handler: { _ in
             self.openGallary()
         }))
         
-        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction.init(title: "Cancelar", style: .cancel, handler: nil))
         
         //If you want work actionsheet on ipad then you have to use popoverPresentationController to present the actionsheet, otherwise app will crash in iPad
         switch UIDevice.current.userInterfaceIdiom {

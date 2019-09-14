@@ -2,16 +2,21 @@ PODS:
   - BMSAnalyticsAPI (2.3.1)
   - BMSCore (2.4.0):
     - BMSAnalyticsAPI (~> 2.3)
+  - ImageSlideshow (1.8.0):
+    - ImageSlideshow/Core (= 1.8.0)
+  - ImageSlideshow/Core (1.8.0)
   - SwiftCloudant (0.9.1-SNAPSHOT)
 
 DEPENDENCIES:
   - BMSCore (~> 2.0)
+  - ImageSlideshow (~> 1.6)
   - SwiftCloudant (from `https://github.com/cloudant/swift-cloudant.git`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - BMSAnalyticsAPI
     - BMSCore
+    - ImageSlideshow
 
 EXTERNAL SOURCES:
   SwiftCloudant:
@@ -25,8 +30,9 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   BMSAnalyticsAPI: f9c740eb3c0857c0955e58a10321a96b5d85304e
   BMSCore: 73cccdaec5452ab5183afc01e85881bbb8137ef7
+  ImageSlideshow: 197130fe349aafa9446f54277c792551d41eadf9
   SwiftCloudant: 060f8b592e5712286497a02e5a63278babd47219
 
-PODFILE CHECKSUM: 0104591e61cda30a57ee94cdbc20f9831d570d1f
+PODFILE CHECKSUM: 282532764cba67f014d6da9bb02ea94de5214a65
 
 COCOAPODS: 1.7.5

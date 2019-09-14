@@ -170,7 +170,7 @@
                                                         <constraint firstAttribute="height" constant="108" id="6nd-VN-06L"/>
                                                         <constraint firstAttribute="width" constant="108" id="gZJ-Gr-fbm"/>
                                                     </constraints>
-                                                    <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="tintColor" red="0.76078444719314575" green="0.23529419302940369" blue="0.533333420753479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" image="Grupo 842">
                                                         <color key="titleColor" red="0.76078431369999999" green="0.23529411759999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
@@ -191,6 +191,11 @@
                                                         <constraint firstAttribute="height" constant="108" id="5rB-Aw-0Fb"/>
                                                         <constraint firstAttribute="width" constant="108" id="iSF-Bx-BiU"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                             </subviews>
                                             <constraints>

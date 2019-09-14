@@ -45,7 +45,7 @@ class CustomController: UITableViewController {
         
         cell.customizationLabel.text = custom.title
         cell.timeLabel.text = custom.time
-        cell.priceLabel.text = custom.costs
+        cell.priceLabel.text = "R$ \(custom.costs)"
         cell.customizationImage.image = custom.photo
         
         return cell

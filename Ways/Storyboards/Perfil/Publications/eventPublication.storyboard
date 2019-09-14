@@ -42,7 +42,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="agenda" translatesAutoresizingMaskIntoConstraints="NO" id="gon-PW-HwC">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date" translatesAutoresizingMaskIntoConstraints="NO" id="gon-PW-HwC">
                                 <rect key="frame" x="16" y="250" width="18" height="18"/>
                                 <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -76,11 +76,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticket" translatesAutoresizingMaskIntoConstraints="NO" id="CZs-gu-Ehr">
+                                <rect key="frame" x="16" y="318" width="18" height="18"/>
+                                <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="18" id="Akx-ch-IKs"/>
+                                    <constraint firstAttribute="height" constant="18" id="NeB-c5-PQ9"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gon-PW-HwC" firstAttribute="leading" secondItem="BDf-fP-yaq" secondAttribute="leading" constant="16" id="0ym-TQ-hqy"/>
                             <constraint firstItem="yBF-Ve-2wW" firstAttribute="leading" secondItem="BDf-fP-yaq" secondAttribute="leading" constant="16" id="6tT-gP-lrs"/>
+                            <constraint firstItem="CZs-gu-Ehr" firstAttribute="leading" secondItem="BDf-fP-yaq" secondAttribute="leading" constant="16" id="7sQ-Pg-Cqr"/>
                             <constraint firstItem="FCw-x9-olj" firstAttribute="leading" secondItem="BDf-fP-yaq" secondAttribute="leading" constant="16" id="8Ah-fW-Ypf"/>
                             <constraint firstItem="hRQ-cN-sPQ" firstAttribute="leading" secondItem="BDf-fP-yaq" secondAttribute="leading" constant="16" id="8St-QI-wVv"/>
                             <constraint firstItem="yBF-Ve-2wW" firstAttribute="top" secondItem="HEa-Bx-AzG" secondAttribute="bottom" constant="16" id="8bh-hu-djL"/>
@@ -102,6 +111,7 @@
                             <constraint firstItem="BDf-fP-yaq" firstAttribute="trailing" secondItem="Jrv-Dj-DqS" secondAttribute="trailing" constant="16" id="n2w-3r-GPL"/>
                             <constraint firstItem="BDf-fP-yaq" firstAttribute="trailing" secondItem="hRQ-cN-sPQ" secondAttribute="trailing" constant="16" id="sC5-WP-HUN"/>
                             <constraint firstItem="BDf-fP-yaq" firstAttribute="trailing" secondItem="mVz-IP-eaY" secondAttribute="trailing" constant="16" id="ufX-dV-T4W"/>
+                            <constraint firstItem="CZs-gu-Ehr" firstAttribute="top" secondItem="w5q-XR-8la" secondAttribute="bottom" constant="16" id="uwS-zK-ipI"/>
                             <constraint firstItem="BDf-fP-yaq" firstAttribute="trailing" secondItem="FCw-x9-olj" secondAttribute="trailing" constant="16" id="veD-Gj-utl"/>
                             <constraint firstItem="w5q-XR-8la" firstAttribute="leading" secondItem="BDf-fP-yaq" secondAttribute="leading" constant="16" id="yrR-DC-iD4"/>
                         </constraints>
@@ -122,7 +132,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="agenda" width="20" height="22"/>
-        <image name="local icon" width="13" height="13"/>
+        <image name="date" width="18" height="18"/>
+        <image name="local icon" width="12" height="18"/>
+        <image name="ticket" width="18" height="18"/>
     </resources>
 </document>

@@ -42,7 +42,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="agenda" translatesAutoresizingMaskIntoConstraints="NO" id="ED0-vx-45u">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date" translatesAutoresizingMaskIntoConstraints="NO" id="ED0-vx-45u">
                                 <rect key="frame" x="16" y="250" width="18" height="18"/>
                                 <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -88,6 +88,14 @@
                                 <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Interesse"/>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticket" translatesAutoresizingMaskIntoConstraints="NO" id="eBX-Un-csU">
+                                <rect key="frame" x="16" y="318" width="18" height="18"/>
+                                <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="ESV-1j-Wc7"/>
+                                    <constraint firstAttribute="width" constant="18" id="Ehr-fG-5uy"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -102,6 +110,7 @@
                             <constraint firstItem="52j-G2-kCD" firstAttribute="top" secondItem="Nmi-5O-okN" secondAttribute="top" id="Nod-QH-r0u"/>
                             <constraint firstItem="rcb-1v-bOz" firstAttribute="leading" secondItem="Nmi-5O-okN" secondAttribute="leading" constant="50" id="OqF-E3-LvA"/>
                             <constraint firstItem="HmJ-kd-1ei" firstAttribute="leading" secondItem="ED0-vx-45u" secondAttribute="trailing" constant="8" id="R2L-Wy-uc7"/>
+                            <constraint firstItem="eBX-Un-csU" firstAttribute="leading" secondItem="Nmi-5O-okN" secondAttribute="leading" constant="16" id="agk-RE-lNK"/>
                             <constraint firstItem="wtX-fm-DZy" firstAttribute="top" secondItem="rcb-1v-bOz" secondAttribute="bottom" constant="32" id="bk1-Go-Wax"/>
                             <constraint firstItem="Nmi-5O-okN" firstAttribute="trailing" secondItem="rcb-1v-bOz" secondAttribute="trailing" constant="16" id="bkf-6V-Zpu"/>
                             <constraint firstItem="Nmi-5O-okN" firstAttribute="trailing" secondItem="MK1-UC-YoX" secondAttribute="trailing" constant="16" id="d9N-es-JIc"/>
@@ -110,6 +119,7 @@
                             <constraint firstItem="ED0-vx-45u" firstAttribute="top" secondItem="Yxv-nx-Ohx" secondAttribute="bottom" constant="16" id="ib8-uo-qxo"/>
                             <constraint firstItem="Nmi-5O-okN" firstAttribute="trailing" secondItem="Yxv-nx-Ohx" secondAttribute="trailing" constant="16" id="oNG-4M-XUr"/>
                             <constraint firstItem="dJd-gW-CRv" firstAttribute="leading" secondItem="Nmi-5O-okN" secondAttribute="leading" constant="16" id="odf-ME-KD6"/>
+                            <constraint firstItem="eBX-Un-csU" firstAttribute="top" secondItem="b4P-03-LCN" secondAttribute="bottom" constant="16" id="rW0-fC-QZQ"/>
                             <constraint firstItem="MK1-UC-YoX" firstAttribute="leading" secondItem="b4P-03-LCN" secondAttribute="trailing" constant="8" id="vgQ-wz-T6E"/>
                             <constraint firstItem="Yxv-nx-Ohx" firstAttribute="top" secondItem="52j-G2-kCD" secondAttribute="bottom" constant="16" id="vj4-g8-cVO"/>
                             <constraint firstItem="Nmi-5O-okN" firstAttribute="trailing" secondItem="HmJ-kd-1ei" secondAttribute="trailing" constant="16" id="xcJ-xl-A3x"/>
@@ -134,7 +144,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="agenda" width="20" height="22"/>
-        <image name="local icon" width="13" height="13"/>
+        <image name="date" width="18" height="18"/>
+        <image name="local icon" width="12" height="18"/>
+        <image name="ticket" width="18" height="18"/>
     </resources>
 </document>

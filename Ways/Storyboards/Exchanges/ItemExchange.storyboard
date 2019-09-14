@@ -100,6 +100,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Item para Troca" id="d5G-uB-0x2">
                         <barButtonItem key="rightBarButtonItem" title="Favorite" image="heart" id="VUr-ZX-Vs5">
+                            <color key="tintColor" red="0.76078444719314575" green="0.23529419302940369" blue="0.533333420753479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="favoriteButtom:" destination="Ro3-pb-bjU" id="eMw-Qz-D1h"/>
                             </connections>
@@ -119,8 +120,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="condition icon" width="18.5" height="18.5"/>
-        <image name="heart" width="25" height="23"/>
-        <image name="preference icon" width="13" height="12"/>
+        <image name="condition icon" width="18" height="18"/>
+        <image name="heart" width="26" height="24"/>
+        <image name="preference icon" width="18" height="16"/>
     </resources>
 </document>

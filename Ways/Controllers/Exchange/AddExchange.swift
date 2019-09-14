@@ -47,6 +47,8 @@ class AddExchange: UITableViewController, UIPickerViewDataSource, UIPickerViewDe
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(title: "Confirmar", style: .plain, target: self, action: #selector(donedatePicker));
         
+      
+        toolbar.tintColor = #colorLiteral(red: 0.7607844472, green: 0.235294193, blue: 0.5333334208, alpha: 1)
         toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
         
         conditionTextField.inputAccessoryView = toolbar

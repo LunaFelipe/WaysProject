@@ -106,6 +106,23 @@ class ControlController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if selectedSegment == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "spendingCell") as? SpendingCell
+            return cell
+        }
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+         if selectedSegment == 2 {
+            return 128
+        }
+        
+        return UITableView.automaticDimension
+    }
  
     
     @IBAction func adicionarControle(_ sender: Any) {

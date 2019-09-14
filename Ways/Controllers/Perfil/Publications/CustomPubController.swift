@@ -23,7 +23,7 @@ class CustomPubController: UIViewController {
 
         if let oCustom = self.custom {
             pubTitle.text = oCustom.title
-            pubCosts.text = oCustom.costs
+            pubCosts.text = "R$ \(oCustom.costs)"
             pubTime.text = oCustom.time
             photo.image = oCustom.photo
             pubDescription.text = oCustom.description

@@ -31,6 +31,11 @@
                                                 <constraint firstAttribute="width" constant="108" id="9GJ-Yd-uRV"/>
                                                 <constraint firstAttribute="height" constant="108" id="RCl-bo-CKu"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome da customizacao" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Gq-g7-kNh">
                                             <rect key="frame" x="144" y="25" width="254" height="20.5"/>
@@ -136,7 +141,7 @@
         <scene sceneID="AXo-ai-B77">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jkA-IT-zXG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Customizações" image="Customizacao icone" id="f0F-HR-hcV"/>
+                    <tabBarItem key="tabBarItem" title="Customizações" image="customizations" id="f0F-HR-hcV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nvl-GV-e11">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -157,8 +162,8 @@
     </scenes>
     <resources>
         <image name="Add Icon " width="22" height="22"/>
-        <image name="Customizacao icone" width="27.5" height="27.5"/>
-        <image name="price icon" width="13.5" height="12.5"/>
-        <image name="time icon" width="13.5" height="13.5"/>
+        <image name="customizations" width="22" height="24"/>
+        <image name="price icon" width="18" height="18"/>
+        <image name="time icon" width="18" height="18"/>
     </resources>
 </document>

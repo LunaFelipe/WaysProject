@@ -42,7 +42,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="agenda" translatesAutoresizingMaskIntoConstraints="NO" id="8Ow-HW-fDa">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date" translatesAutoresizingMaskIntoConstraints="NO" id="8Ow-HW-fDa">
                                 <rect key="frame" x="16" y="250" width="18" height="18"/>
                                 <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -79,6 +79,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGa-az-I5i">
                                 <rect key="frame" x="16" y="481" width="136" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Confirmar presença"/>
                                 <connections>
                                     <action selector="confirmButtom:" destination="uZF-ge-9dC" eventType="touchUpInside" id="4xp-Ro-bj7"/>
@@ -87,11 +88,20 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPZ-TP-tQt">
                                 <rect key="frame" x="16" y="519" width="63" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Interesse"/>
                                 <connections>
                                     <action selector="interestButtom:" destination="uZF-ge-9dC" eventType="touchUpInside" id="kai-8k-mgD"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticket" translatesAutoresizingMaskIntoConstraints="NO" id="iUD-CI-NTc">
+                                <rect key="frame" x="16" y="318" width="18" height="18"/>
+                                <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="fmS-rd-OXn"/>
+                                    <constraint firstAttribute="width" constant="18" id="jSJ-RE-Lil"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -100,6 +110,7 @@
                             <constraint firstItem="FAY-sa-G1e" firstAttribute="top" secondItem="8Ow-HW-fDa" secondAttribute="bottom" constant="16" id="ANd-qB-cTi"/>
                             <constraint firstItem="B3w-7Y-cgo" firstAttribute="top" secondItem="vyU-zC-7bH" secondAttribute="bottom" constant="32" id="AiK-B7-BW1"/>
                             <constraint firstItem="m2d-Wq-2KQ" firstAttribute="trailing" secondItem="B3w-7Y-cgo" secondAttribute="trailing" constant="16" id="CVG-FF-ulE"/>
+                            <constraint firstItem="iUD-CI-NTc" firstAttribute="leading" secondItem="m2d-Wq-2KQ" secondAttribute="leading" constant="16" id="JEP-9c-qK9"/>
                             <constraint firstItem="m2d-Wq-2KQ" firstAttribute="trailing" secondItem="wJD-v6-AuT" secondAttribute="trailing" constant="16" id="KPY-rZ-sYq"/>
                             <constraint firstItem="Xje-j7-vGe" firstAttribute="top" secondItem="6JX-L5-t0K" secondAttribute="bottom" constant="16" id="KzR-cX-KrI"/>
                             <constraint firstItem="m2d-Wq-2KQ" firstAttribute="trailing" secondItem="djE-j5-2Fz" secondAttribute="trailing" constant="16" id="N46-rH-uBB"/>
@@ -116,6 +127,7 @@
                             <constraint firstItem="6JX-L5-t0K" firstAttribute="top" secondItem="m2d-Wq-2KQ" secondAttribute="top" id="kMi-Cr-hax"/>
                             <constraint firstItem="6JX-L5-t0K" firstAttribute="leading" secondItem="m2d-Wq-2KQ" secondAttribute="leading" id="kvh-Qk-5lu"/>
                             <constraint firstItem="m2d-Wq-2KQ" firstAttribute="trailing" secondItem="Xje-j7-vGe" secondAttribute="trailing" constant="16" id="pD9-4z-6Tr"/>
+                            <constraint firstItem="iUD-CI-NTc" firstAttribute="top" secondItem="FAY-sa-G1e" secondAttribute="bottom" constant="16" id="spA-o9-FZa"/>
                             <constraint firstItem="m2d-Wq-2KQ" firstAttribute="trailing" secondItem="ZkG-gI-y81" secondAttribute="trailing" constant="16" id="tfC-Ne-9wZ"/>
                             <constraint firstItem="wJD-v6-AuT" firstAttribute="leading" secondItem="FAY-sa-G1e" secondAttribute="trailing" constant="8" id="x4g-G6-ZYj"/>
                             <constraint firstItem="vyU-zC-7bH" firstAttribute="leading" secondItem="m2d-Wq-2KQ" secondAttribute="leading" constant="50" id="y9G-DY-Mb1"/>
@@ -138,7 +150,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="agenda" width="20" height="22"/>
-        <image name="local icon" width="13" height="13"/>
+        <image name="date" width="18" height="18"/>
+        <image name="local icon" width="12" height="18"/>
+        <image name="ticket" width="18" height="18"/>
     </resources>
 </document>

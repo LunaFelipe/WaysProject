@@ -8,7 +8,11 @@
 
 import UIKit
 
-class AddCustom: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class AddCustom: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
 
     var customizacaoScreen: CustomController?
     let imagePicker = UIImagePickerController()
@@ -18,6 +22,56 @@ class AddCustom: UITableViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var priceField: UITextField!
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var descriptionField: UITextField!
+    
+    var pickOption = ["5 a 10 min", "10 a 20 min", "20 a 30 min", "30 a 45 min", "45 min a 1 hr" ]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let pickerView = UIPickerView()
+        
+        pickerView.delegate = self
+        
+        timeField.inputView = pickerView
+        
+        showDatePicker()
+    }
+    
+    func showDatePicker(){
+        
+        //ToolBar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(cancelDatePicker));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Confirmar", style: .plain, target: self, action: #selector(donedatePicker));
+        
+        
+        toolbar.tintColor = #colorLiteral(red: 0.7607844472, green: 0.235294193, blue: 0.5333334208, alpha: 1)
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        
+        timeField.inputAccessoryView = toolbar
+    }
+    
+    @objc func donedatePicker(){
+        self.view.endEditing(true)
+    }
+    
+    @objc func cancelDatePicker(){
+        self.view.endEditing(true)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickOption.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickOption[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        timeField.text = "\(pickOption[row])"
+    }
     
     @IBAction func imgButton(_ sender: Any) {
         imagePicker.delegate = self

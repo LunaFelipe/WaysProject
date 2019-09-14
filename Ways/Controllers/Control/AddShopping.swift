@@ -37,6 +37,7 @@ class AddShopping: UITableViewController {
         
         toolbar.setItems([cancelButton,spaceButton,doneButton], animated: false)
         
+        toolbar.tintColor = #colorLiteral(red: 0.7607844472, green: 0.235294193, blue: 0.5333334208, alpha: 1)
         date.inputAccessoryView = toolbar
         date.inputView = datePicker
         

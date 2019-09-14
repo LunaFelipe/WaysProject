@@ -97,7 +97,9 @@
                         <viewLayoutGuide key="safeArea" id="yUE-Vc-lV5"/>
                     </view>
                     <navigationItem key="navigationItem" title="Item para Troca" id="Kil-rB-2ze">
-                        <barButtonItem key="rightBarButtonItem" title="Favorite" id="568-0i-88X"/>
+                        <barButtonItem key="rightBarButtonItem" title="Favorite" image="heart" id="568-0i-88X">
+                            <color key="tintColor" red="0.76078444719314575" green="0.23529419302940369" blue="0.533333420753479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="condition" destination="gkx-Yv-Md2" id="k6n-bQ-eHg"/>
@@ -113,7 +115,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="condition icon" width="18.5" height="18.5"/>
-        <image name="preference icon" width="13" height="12"/>
+        <image name="condition icon" width="18" height="18"/>
+        <image name="heart" width="26" height="24"/>
+        <image name="preference icon" width="18" height="16"/>
     </resources>
 </document>

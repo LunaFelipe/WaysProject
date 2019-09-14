@@ -150,7 +150,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adicionar fotos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBe-kY-eVJ">
-                                                    <rect key="frame" x="16" y="16" width="118.5" height="21"/>
+                                                    <rect key="frame" x="16" y="16" width="382" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -161,7 +161,7 @@
                                                         <constraint firstAttribute="width" constant="108" id="JYJ-vP-hB6"/>
                                                         <constraint firstAttribute="height" constant="108" id="qc4-B6-hLo"/>
                                                     </constraints>
-                                                    <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="tintColor" red="0.76078444719314575" green="0.23529419302940369" blue="0.533333420753479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" image="Grupo 842">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -169,19 +169,28 @@
                                                         <action selector="imgButton:" destination="oKc-2G-oKy" eventType="touchUpInside" id="rS7-Dg-e66"/>
                                                     </connections>
                                                 </button>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oYR-Ho-lhB">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oYR-Ho-lhB">
                                                     <rect key="frame" x="16" y="45" width="108" height="108"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="tintColor" red="0.76078444719314575" green="0.23529419302940369" blue="0.533333420753479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="108" id="Hi2-fX-hmN"/>
+                                                        <constraint firstAttribute="height" constant="108" id="nYa-iF-QhZ"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="oYR-Ho-lhB" firstAttribute="leading" secondItem="2jo-D9-Gdn" secondAttribute="leading" constant="16" id="MnK-Bq-1Bv"/>
                                                 <constraint firstItem="OBe-kY-eVJ" firstAttribute="leading" secondItem="2jo-D9-Gdn" secondAttribute="leading" constant="16" id="TDv-u2-R8t"/>
                                                 <constraint firstItem="Od5-4u-13p" firstAttribute="leading" secondItem="2jo-D9-Gdn" secondAttribute="leading" constant="16" id="bVn-5m-eeF"/>
-                                                <constraint firstAttribute="trailing" secondItem="Od5-4u-13p" secondAttribute="trailing" constant="16" id="esv-yY-Z91"/>
                                                 <constraint firstItem="Od5-4u-13p" firstAttribute="top" secondItem="OBe-kY-eVJ" secondAttribute="bottom" constant="8" id="iRd-aR-Qoo"/>
                                                 <constraint firstAttribute="trailing" secondItem="OBe-kY-eVJ" secondAttribute="trailing" constant="16" id="ma2-5u-q6K"/>
                                                 <constraint firstItem="OBe-kY-eVJ" firstAttribute="top" secondItem="2jo-D9-Gdn" secondAttribute="top" constant="16" id="sbW-9m-YTx"/>
+                                                <constraint firstItem="oYR-Ho-lhB" firstAttribute="top" secondItem="OBe-kY-eVJ" secondAttribute="bottom" constant="8" id="vyA-XX-ZSS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

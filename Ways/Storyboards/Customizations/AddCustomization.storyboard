@@ -151,17 +151,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iCt-fo-0vl">
-                                                    <rect key="frame" x="16" y="50" width="108" height="108"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvS-4P-8US">
                                                     <rect key="frame" x="16" y="50" width="108" height="108"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="108" id="1ha-8i-o6W"/>
                                                         <constraint firstAttribute="width" constant="108" id="IRW-IZ-9U0"/>
                                                     </constraints>
-                                                    <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="tintColor" red="0.76078444719314575" green="0.23529419302940369" blue="0.533333420753479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" image="Grupo 842">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -169,11 +165,25 @@
                                                         <action selector="imgButton:" destination="9Hq-Ke-GIO" eventType="touchUpInside" id="ARR-oG-3mH"/>
                                                     </connections>
                                                 </button>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iCt-fo-0vl">
+                                                    <rect key="frame" x="16" y="50" width="108" height="108"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="108" id="MIj-gu-J1n"/>
+                                                        <constraint firstAttribute="width" constant="108" id="W6s-p1-Yna"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="iCt-fo-0vl" firstAttribute="leading" secondItem="UpC-oM-HkD" secondAttribute="leading" constant="16" id="Iss-1X-dVS"/>
                                                 <constraint firstItem="DvS-4P-8US" firstAttribute="leading" secondItem="UpC-oM-HkD" secondAttribute="leading" constant="16" id="Jcy-vx-j4L"/>
                                                 <constraint firstItem="sMN-3Q-Pc1" firstAttribute="top" secondItem="UpC-oM-HkD" secondAttribute="top" constant="21" id="KJN-V0-Jwa"/>
                                                 <constraint firstItem="DvS-4P-8US" firstAttribute="top" secondItem="sMN-3Q-Pc1" secondAttribute="bottom" constant="8" id="OiB-1r-grJ"/>
+                                                <constraint firstItem="iCt-fo-0vl" firstAttribute="top" secondItem="sMN-3Q-Pc1" secondAttribute="bottom" constant="8" id="oub-zA-A1H"/>
                                                 <constraint firstItem="sMN-3Q-Pc1" firstAttribute="leading" secondItem="UpC-oM-HkD" secondAttribute="leading" constant="16" id="qUD-zL-UZW"/>
                                                 <constraint firstAttribute="trailing" secondItem="sMN-3Q-Pc1" secondAttribute="trailing" constant="234.5" id="yhe-1R-1uy"/>
                                             </constraints>

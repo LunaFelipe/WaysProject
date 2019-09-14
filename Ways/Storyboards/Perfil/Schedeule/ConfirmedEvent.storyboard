@@ -42,7 +42,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="agenda" translatesAutoresizingMaskIntoConstraints="NO" id="qWG-It-IF6">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date" translatesAutoresizingMaskIntoConstraints="NO" id="qWG-It-IF6">
                                 <rect key="frame" x="16" y="250" width="18" height="18"/>
                                 <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -79,13 +79,23 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFn-uG-0TZ">
                                 <rect key="frame" x="16" y="481" width="136" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Confirmar presença"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUf-UY-a5K">
                                 <rect key="frame" x="16" y="519" width="63" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Interesse"/>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticket" translatesAutoresizingMaskIntoConstraints="NO" id="n5i-sI-2yu">
+                                <rect key="frame" x="16" y="318" width="18" height="18"/>
+                                <color key="tintColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="C9p-Ra-0MG"/>
+                                    <constraint firstAttribute="width" constant="18" id="jOW-Uj-SNq"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -106,6 +116,7 @@
                             <constraint firstItem="DaN-6V-0qK" firstAttribute="trailing" secondItem="jN2-En-Wbe" secondAttribute="trailing" constant="16" id="S7S-Mc-c6c"/>
                             <constraint firstItem="Udi-hI-Uch" firstAttribute="top" secondItem="QRk-Jf-Iq7" secondAttribute="bottom" constant="14.5" id="UL2-6v-lIG"/>
                             <constraint firstItem="UKz-83-1Ly" firstAttribute="leading" secondItem="DaN-6V-0qK" secondAttribute="leading" constant="16" id="Vs5-u1-9aR"/>
+                            <constraint firstItem="n5i-sI-2yu" firstAttribute="leading" secondItem="DaN-6V-0qK" secondAttribute="leading" constant="16" id="YOb-Ul-dtf"/>
                             <constraint firstItem="k4a-oO-ybp" firstAttribute="top" secondItem="qWG-It-IF6" secondAttribute="bottom" constant="16" id="aQY-HG-SeA"/>
                             <constraint firstItem="qWG-It-IF6" firstAttribute="leading" secondItem="DaN-6V-0qK" secondAttribute="leading" constant="16" id="b3U-m1-6wP"/>
                             <constraint firstItem="DaN-6V-0qK" firstAttribute="trailing" secondItem="Udi-hI-Uch" secondAttribute="trailing" constant="16" id="bxO-Wc-PxA"/>
@@ -114,6 +125,7 @@
                             <constraint firstItem="lPy-7v-lk6" firstAttribute="leading" secondItem="DaN-6V-0qK" secondAttribute="leading" constant="16" id="eed-Qt-XPC"/>
                             <constraint firstItem="DaN-6V-0qK" firstAttribute="trailing" secondItem="lPy-7v-lk6" secondAttribute="trailing" constant="16" id="nmm-GT-VjN"/>
                             <constraint firstItem="UKz-83-1Ly" firstAttribute="top" secondItem="Udi-hI-Uch" secondAttribute="bottom" constant="32" id="rkb-uN-ZvY"/>
+                            <constraint firstItem="n5i-sI-2yu" firstAttribute="top" secondItem="k4a-oO-ybp" secondAttribute="bottom" constant="16" id="soa-eH-zds"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DaN-6V-0qK"/>
                     </view>
@@ -132,7 +144,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="agenda" width="20" height="22"/>
-        <image name="local icon" width="13" height="13"/>
+        <image name="date" width="18" height="18"/>
+        <image name="local icon" width="12" height="18"/>
+        <image name="ticket" width="18" height="18"/>
     </resources>
 </document>

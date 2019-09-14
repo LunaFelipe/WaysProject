@@ -23,7 +23,7 @@ class CustomFavoriteDetail: UIViewController {
 
         if let oCustom = self.custom {
             titleFav.text = oCustom.title
-            costs.text = oCustom.costs
+            costs.text = "R$ \(oCustom.costs)"
             time.text = oCustom.time
             photo.image = oCustom.photo
             descriptionFav.text = oCustom.description

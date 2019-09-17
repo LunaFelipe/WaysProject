@@ -17,14 +17,14 @@ class MyPerfilController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PerfilItem.shared.PerfilItemArray.count
+        return ArrayControl.shared.PerfilItemArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "perfilItemCell") as! PerfilItemCell
         
-        let item = PerfilItem.shared.PerfilItemArray[indexPath.row]
+        let item = ArrayControl.shared.PerfilItemArray[indexPath.row]
         
         cell.title.text = item.title
         cell.price.text = "R$ \(item.price)"
@@ -55,7 +55,7 @@ class MyPerfilController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let exchangePub = PerfilItem.shared.PerfilItemArray[indexPath.row]
+        let exchangePub = ArrayControl.shared.PerfilItemArray[indexPath.row]
         
         performSegue(withIdentifier: "perfilItemSegue", sender: exchangePub)
         

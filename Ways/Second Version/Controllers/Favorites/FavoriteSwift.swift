@@ -11,6 +11,6 @@ import Foundation
 class FavoriteList {
     
     static let shared = FavoriteList()
-    var favoriteArray: [Item] = []
+    
     
 }

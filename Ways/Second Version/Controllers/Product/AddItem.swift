@@ -162,7 +162,8 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
                                         categorie: categorie.text ?? "",
                                         description: descriptionitem.text ?? "",
                                         photo: photo.image!,
-                                        exchange: output.text ?? ""
+                                        exchange: output.text ?? "",
+                                        isFavorite: false 
                                               ))
         performSegue(withIdentifier: "backToItens", sender: nil)
     }

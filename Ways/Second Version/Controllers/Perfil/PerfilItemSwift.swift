@@ -11,6 +11,6 @@ import Foundation
 class PerfilItem {
     
     static let shared = PerfilItem()
-    var PerfilItemArray: [Item] = []
+    
     
 }

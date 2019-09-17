@@ -16,21 +16,27 @@ struct Item {
     var description: String
     var photo: UIImage
     var exchange: String
+    var isFavorite: Bool
 }
 
 class ProductsController: UITableViewController, UISearchBarDelegate {
     
-    var itensList:[Item] = []
+    
+//    static let shared = ProductsController()
+    
 //    var currentItem = [Item]()
     
     func addItem(item: Item)  {
-        itensList.append(item)
         
-        SellerItem.shared.sellerItemArray.append(item)
-        PerfilItem.shared.PerfilItemArray.append(item)
+        
+        ArrayControl.shared.itensList.append(item)
+        ArrayControl.shared.sellerItemArray.append(item)
+        ArrayControl.shared.PerfilItemArray.append(item)
     
         //Adicionando na lista de publicaçõe
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,14 +85,14 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itensList.count
+        return ArrayControl.shared.itensList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "productItemCell") as! ProductItemCell
         
-        let item = itensList[indexPath.row]
+        let item = ArrayControl.shared.itensList[indexPath.row]
         
         cell.title.text = item.title
         cell.price.text = "R$ \(item.price)"
@@ -98,7 +104,7 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let item = itensList[indexPath.row]
+        let item = ArrayControl.shared.itensList[indexPath.row]
         
         performSegue(withIdentifier: "itemDetail", sender: item)
     }
@@ -132,7 +138,8 @@ extension Item: Equatable {
                 lhs.condition == rhs.condition &&
                 lhs.description == rhs.description &&
                 lhs.photo == rhs.photo &&
-                lhs.exchange == rhs.exchange
+                lhs.exchange == rhs.exchange 
+//                lhs.isFavorite == rhs.isFavorite
     }
 }
 

@@ -13,6 +13,7 @@ class PerfilItemController: UITableViewController {
     var item: Item!
 
     @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var photo2: UIImageView!
     @IBOutlet weak var titleItem: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var condition: UILabel!
@@ -24,6 +25,7 @@ class PerfilItemController: UITableViewController {
 
         if let oItem = self.item {
             photo.image = oItem.photo
+            photo2.image = oItem.photo2
             titleItem.text = oItem.title
             price.text = oItem.price
             condition.text = oItem.condition

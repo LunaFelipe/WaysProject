@@ -13,7 +13,8 @@ import AVFoundation
 class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
     
     var categorieItem: String?
-    let imagePicker = UIImagePickerController()
+    var imagePicker = UIImagePickerController()
+    var imagePicked = 0
     
     var itensScreen: ProductsController?
     
@@ -25,8 +26,10 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
     @IBOutlet weak var condition: UITextField!
     @IBOutlet weak var categorie: UILabel!
     @IBOutlet weak var imageButton: UIButton!
+    @IBOutlet weak var imageButton2: UIButton!
     //    @IBOutlet weak var descriptionitem: UITextField!
     @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var photo2: UIImageView!
     @IBOutlet weak var descriptionItem: UITextView!
     @IBOutlet weak var descriptionPlaceholder: UILabel!
     
@@ -68,7 +71,9 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(allowRowSelection), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
+    
     
     func setTextField(_ aRect: CGRect, _ currentTextField: UITextField) {
         if aRect.contains(currentTextField.frame.origin) {
@@ -109,10 +114,6 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
             let keyboardRectangle = keyboardFrame.cgRectValue
             let kbSize = keyboardRectangle.size.height
             
-            guard let currentTextField = view.getSelectedTextField() else {
-                return
-            }
-            
             if notification.name == UIResponder.keyboardDidShowNotification ||
                 notification.name == UIResponder.keyboardWillChangeFrameNotification {
                 
@@ -124,17 +125,12 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
                 var aRect = self.view.frame
                 aRect.size.height -= kbSize
                 
-                if aRect.contains(currentTextField.frame.origin) {
-                    
-                    let tableViewY = tableViewB.frame.origin.y
-                    
-                    let frame = CGRect(x: currentTextField.frame.origin.x,
-                                       y: currentTextField.frame.origin.y ,
-                                       width: currentTextField.frame.width,
-                                       height: currentTextField.frame.height)
-                    
-                    self.tableViewB.scrollRectToVisible(frame, animated: true)
+                if let currentTextField = view.getSelectedTextField() {
+                    setTextField(aRect, currentTextField)
+                } else if let currentTextView = view.getSelectedTextView() {
+                    setTextView(aRect, currentTextView)
                 }
+                
             }
             
             if notification.name == UIResponder.keyboardWillHideNotification {
@@ -149,6 +145,8 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
     }
     
     @IBAction func photoButtom(_ sender: UIButton) {
+        
+        imagePicked = sender.tag
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
@@ -178,7 +176,7 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)){
             imagePicker.sourceType = UIImagePickerController.SourceType.camera
             //If you dont want to edit the photo then you can set allowsEditing to false
-            imagePicker.allowsEditing = true
+//            imagePicker.allowsEditing = true
             imagePicker.delegate = self
             self.present(imagePicker, animated: true, completion: nil)
         }
@@ -190,11 +188,10 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
     }
     
     //MARK: - Choose image from camera roll
-    
     func openGallary(){
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         //If you dont want to edit the photo then you can set allowsEditing to false
-        imagePicker.allowsEditing = true
+//        imagePicker.allowsEditing = true
         imagePicker.delegate = self
         self.present(imagePicker, animated: true, completion: nil)
     }
@@ -202,7 +199,11 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            photo.image = image
+            if imagePicked == 1 {
+                photo.image = image
+            } else if imagePicked == 2 {
+                photo2.image = image
+            }
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -212,6 +213,7 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
         self.dismiss(animated: true, completion: nil)
     }
     
+    //Condition picker function
     func showConditionPicker(){
         
         //ToolBar
@@ -300,17 +302,14 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
     }
     
     @IBAction func doneButtom(_ sender: Any) {
-        
-//        let ref = Database.database().reference().root
-//        guard let userKey = Auth.auth().currentUser?.uid else {return}
-        
+        // Handle lack of input
         let isAllInformationInputed: Bool = titleItem.text?.isEmpty == false &&
             price.text?.isEmpty == false &&
             condition.text?.isEmpty == false &&
             descriptionItem.text.isEmpty == false &&
             categorie.text != "Selecione uma categoria" &&
-            photo.image != nil
-        
+            photo.image != nil &&
+            photo2.image != nil
         
         if isAllInformationInputed {
             itensScreen?.addItem(item: Item(title: titleItem.text ?? "",
@@ -320,22 +319,15 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
                                             description: descriptionItem.text ?? "",
                                             photo: photo.image!,
                                             exchange: output.text ?? "",
-                                            isFavorite: false
+                                            isFavorite: false,
+                                            photo2: photo2.image!
             ))
-            var itemAdicionado = Item(title: titleItem.text ?? "",
-                                      price: price.text ?? "",
-                                      condition: condition.text ?? "",
-                                      categorie: categorie.text ?? "",
-                                      description: descriptionItem.text ?? "",
-                                      photo: photo.image!,
-                                      exchange: output.text ?? "",
-                                      isFavorite: false)
-            
             performSegue(withIdentifier: "backToItens", sender: nil)
             
         } else {
             inputMissingFeedback()
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -351,9 +343,8 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
     }
     
     @IBAction func backToAddItem (_ segue: UIStoryboardSegue) {
-        
     }
-
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         //Dismiss keyboard when return key is tapped
@@ -495,6 +486,9 @@ extension UITableViewController {
         view.addGestureRecognizer(tap)
     }
     
+    @objc override func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
 @available(iOS 10.0, *)

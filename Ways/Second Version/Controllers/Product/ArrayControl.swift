@@ -16,4 +16,5 @@ class ArrayControl {
     var favoriteArray: [Item] = []
     var sellerItemArray: [Item] = []
     var PerfilItemArray: [Item] = []
+    
 }

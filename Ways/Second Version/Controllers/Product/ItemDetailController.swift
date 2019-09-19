@@ -15,7 +15,19 @@ class ItemDetailController: UITableViewController {
     var likePressed: Bool = false
     var isPerfilHidden = false
     
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var type: UILabel!
+    @IBOutlet weak var products: UILabel!
+    
+    @IBOutlet weak var view1: UIView!
+    @IBOutlet weak var view2: UIView!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var pageView: UIPageControl!
+    @IBOutlet weak var contenteStack: UIStackView!
+    
     @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var photo2: UIImageView!
     @IBOutlet weak var titleItem: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var condition: UILabel!
@@ -114,6 +126,7 @@ class ItemDetailController: UITableViewController {
         price.text = "R$ \(self.item.price)"
         condition.text = self.item.condition
         photo.image = self.item.photo
+        photo2.image = self.item.photo2
         exchange.text = self.item.exchange
         descriptionItem.text = self.item.description
         
@@ -129,9 +142,55 @@ class ItemDetailController: UITableViewController {
         self.view.setNeedsLayout()
         
     }
+    
+    @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
+        let imageView = sender.view as! UIImageView
+        let newImageView = UIImageView(image: imageView.image)
+        newImageView.frame = UIScreen.main.bounds
+        newImageView.backgroundColor = .black
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        sender.view?.removeFromSuperview()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+//        tap.cancelsTouchesInView = false
+//        view1.addGestureRecognizer(tap)
+//        view2.addGestureRecognizer(tap)
+//        view.addGestureRecognizer(tap)
+        
+        // numero de paginas que vao aparecer com o page control
+        pageView.currentPage = 0
+        pageView.numberOfPages = 2
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        // calcula o tamanho do conteúdo da scrollview
+        scrollView.contentSize = self.contenteStack.bounds.size
+        scrollView.contentInset = UIEdgeInsets.zero
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // calcula o numero da página baseado no quanto o scrollview está deslocado em X
+        let page = floor(scrollView.contentOffset.x / self.view.frame.width)
+        
+        // Para atualizar o current page é necessário converter o float para Int
+        pageView.currentPage = Int(page)
     }
 }
+
+

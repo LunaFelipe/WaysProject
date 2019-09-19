@@ -17,13 +17,10 @@ struct Item {
     var photo: UIImage
     var exchange: String
     var isFavorite: Bool
+    var photo2: UIImage
 }
 
 class ProductsController: UITableViewController, UISearchBarDelegate {
-    
-//    static let shared = ProductsController()
-    
-//    var currentItem = [Item]()
     
     func addItem(item: Item)  {
         
@@ -34,33 +31,10 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
         //Adicionando na lista de publicaçõe
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        setUpSearchController()
     }
-    
-//    fileprivate func setUpSearchController() {
-//        // Setup the Search Controller
-//        if let resultViewController = self.storyboard?.instantiateViewController(withIdentifier: "SearchController") as? SearchViewController {
-//            searchController = UISearchController(searchResultsController: resultViewController)
-//
-//            searchDelegate = resultViewController
-//
-//            searchController?.delegate = self
-//            searchController?.searchResultsUpdater = self
-//            searchController?.obscuresBackgroundDuringPresentation = false
-//            searchController?.searchBar.placeholder = "Buscar feiras"
-//            searchController?.hidesNavigationBarDuringPresentation = false
-//            searchController?.searchBar.searchBarStyle = .minimal
-//            searchController?.searchBar.tintColor = #colorLiteral(red: 0.1411764706, green: 0.5411764706, blue: 0.2392156863, alpha: 1)
-//            navigationItem.titleView = searchController?.searchBar
-//            definesPresentationContext = true
-//
-//            resultViewController.selectedMarketDelegate = self
-//        }
-//    }
     
     func createSearchBar() {
         let searchBar = UISearchBar()
@@ -70,11 +44,6 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
         
         self.navigationItem.titleView = searchBar
     }
-    
-    
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        currentAnimalArray = itensList.filter({ animal -> Bool in
-//            switch searchBar.selectedScopeButtonIndex {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -140,6 +109,7 @@ extension Item: Equatable {
                 lhs.condition == rhs.condition &&
                 lhs.description == rhs.description &&
                 lhs.photo == rhs.photo &&
+                lhs.photo2 == rhs.photo2 &&
                 lhs.exchange == rhs.exchange 
 //                lhs.isFavorite == rhs.isFavorite
     }

@@ -10,6 +10,10 @@ import UIKit
 
 class SellerPerfilCell: UITableViewCell {
 
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var type: UILabel!
+    @IBOutlet weak var products: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

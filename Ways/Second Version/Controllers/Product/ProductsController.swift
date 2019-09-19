@@ -21,13 +21,11 @@ struct Item {
 
 class ProductsController: UITableViewController, UISearchBarDelegate {
     
-    
 //    static let shared = ProductsController()
     
 //    var currentItem = [Item]()
     
     func addItem(item: Item)  {
-        
         
         ArrayControl.shared.itensList.append(item)
         ArrayControl.shared.sellerItemArray.append(item)
@@ -121,6 +119,10 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
                     return
                 }
                 detailVC.item = item
+            }
+        } else if segue.identifier == "backToLogin" {
+            if segue.destination is LoginViewController {
+                
             }
         }
     }

@@ -24,6 +24,24 @@ class ItemDetailController: UITableViewController {
    
     @IBOutlet weak var favorite: UIBarButtonItem!
     
+    @IBAction func actionSheet(_ sender: Any) {
+        // 1
+        let optionMenu = UIAlertController(title: nil, message: "Mande uma mensagem", preferredStyle: .actionSheet)
+        
+        // 2
+        let deleteAction = UIAlertAction(title: "Whatsapp", style: .default)
+        
+        // 3
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        // 4
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(cancelAction)
+        
+        // 5
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    
     @IBAction func favoriteButtom(_ sender: UIBarButtonItem) {
         
         if likePressed == false {

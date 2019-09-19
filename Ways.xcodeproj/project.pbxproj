@@ -47,6 +47,7 @@
 		3A16854C23301E1700A5E9E8 /* PerfilItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16854B23301E1700A5E9E8 /* PerfilItemCell.swift */; };
 		3A16854E23301EA700A5E9E8 /* PerfilItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16854D23301EA700A5E9E8 /* PerfilItemController.swift */; };
 		3A16855023301F3500A5E9E8 /* PerfilItemSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A16854F23301F3500A5E9E8 /* PerfilItemSwift.swift */; };
+		3A2A6D9C2333A53700B6D451 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A6D9B2333A53700B6D451 /* RegisterController.swift */; };
 		3A566251232AAFD3005AC30C /* ScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A566250232AAFD3005AC30C /* ScheduleController.swift */; };
 		3A566255232AB1AD005AC30C /* EventConfirmedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A566254232AB1AD005AC30C /* EventConfirmedCell.swift */; };
 		3A566257232AB1C7005AC30C /* EventInterestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A566256232AB1C7005AC30C /* EventInterestCell.swift */; };
@@ -67,6 +68,9 @@
 		3A78C1682325A89D00C23288 /* AddEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A78C1592325A89C00C23288 /* AddEvent.swift */; };
 		3A78C1692325A89D00C23288 /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A78C15A2325A89C00C23288 /* EventDetail.swift */; };
 		3A816897233136DA00BE9246 /* ArrayControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A816896233136DA00BE9246 /* ArrayControl.swift */; };
+		3A816899233268A800BE9246 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A816898233268A700BE9246 /* GoogleService-Info.plist */; };
+		3A81689C23326CCD00BE9246 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81689B23326CCD00BE9246 /* LoginViewController.swift */; };
+		3A81689E23326DAA00BE9246 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81689D23326DAA00BE9246 /* FirebaseAuthManager.swift */; };
 		3A918EED2329717000F6E580 /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A918EEC2329717000F6E580 /* FavoriteController.swift */; };
 		3A918EEF2329733900F6E580 /* ExchangeFavCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A918EEE2329733900F6E580 /* ExchangeFavCell.swift */; };
 		3A918EF1232977C200F6E580 /* CustomFavCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A918EF0232977C200F6E580 /* CustomFavCell.swift */; };
@@ -85,6 +89,7 @@
 		3AA547A7232BC2A10013B574 /* AddShopping.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AA547A6232BC2A10013B574 /* AddShopping.storyboard */; };
 		3AA566A123304A2A00331948 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA566A023304A2A00331948 /* MapController.swift */; };
 		3AA60E14232FD64D00EB8D04 /* SellerPerfilCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA60E13232FD64D00EB8D04 /* SellerPerfilCell.swift */; };
+		3AD49B3723327FEF00F6EE6F /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD49B3623327FEF00F6EE6F /* LogoutViewController.swift */; };
 		3AEC1DCC232F1786006915E6 /* ProductItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC1DCB232F1786006915E6 /* ProductItemCell.swift */; };
 		3AEC1DCE232F17F1006915E6 /* ProductsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC1DCD232F17F1006915E6 /* ProductsController.swift */; };
 		3AEC1DD0232F1A1F006915E6 /* AddItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC1DCF232F1A1F006915E6 /* AddItem.swift */; };
@@ -165,6 +170,7 @@
 		3A16854B23301E1700A5E9E8 /* PerfilItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilItemCell.swift; sourceTree = "<group>"; };
 		3A16854D23301EA700A5E9E8 /* PerfilItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilItemController.swift; sourceTree = "<group>"; };
 		3A16854F23301F3500A5E9E8 /* PerfilItemSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilItemSwift.swift; sourceTree = "<group>"; };
+		3A2A6D9B2333A53700B6D451 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		3A566250232AAFD3005AC30C /* ScheduleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleController.swift; sourceTree = "<group>"; };
 		3A566254232AB1AD005AC30C /* EventConfirmedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventConfirmedCell.swift; sourceTree = "<group>"; };
 		3A566256232AB1C7005AC30C /* EventInterestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInterestCell.swift; sourceTree = "<group>"; };
@@ -185,6 +191,10 @@
 		3A78C1592325A89C00C23288 /* AddEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEvent.swift; sourceTree = "<group>"; };
 		3A78C15A2325A89C00C23288 /* EventDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
 		3A816896233136DA00BE9246 /* ArrayControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArrayControl.swift; path = Product/ArrayControl.swift; sourceTree = "<group>"; };
+		3A816898233268A700BE9246 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3A81689B23326CCD00BE9246 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3A81689D23326DAA00BE9246 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		3A81689F23326DF800BE9246 /* Ways.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ways.entitlements; sourceTree = "<group>"; };
 		3A918EEC2329717000F6E580 /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		3A918EEE2329733900F6E580 /* ExchangeFavCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeFavCell.swift; sourceTree = "<group>"; };
 		3A918EF0232977C200F6E580 /* CustomFavCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFavCell.swift; sourceTree = "<group>"; };
@@ -203,6 +213,7 @@
 		3AA547A6232BC2A10013B574 /* AddShopping.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddShopping.storyboard; sourceTree = "<group>"; };
 		3AA566A023304A2A00331948 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		3AA60E13232FD64D00EB8D04 /* SellerPerfilCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerPerfilCell.swift; sourceTree = "<group>"; };
+		3AD49B3623327FEF00F6EE6F /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
 		3AEC1DCB232F1786006915E6 /* ProductItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemCell.swift; sourceTree = "<group>"; };
 		3AEC1DCD232F17F1006915E6 /* ProductsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsController.swift; sourceTree = "<group>"; };
 		3AEC1DCF232F1A1F006915E6 /* AddItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItem.swift; sourceTree = "<group>"; };
@@ -397,6 +408,16 @@
 			path = Events;
 			sourceTree = "<group>";
 		};
+		3A81689A23326CB400BE9246 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3AD49B3623327FEF00F6EE6F /* LogoutViewController.swift */,
+				3A81689B23326CCD00BE9246 /* LoginViewController.swift */,
+				3A2A6D9B2333A53700B6D451 /* RegisterController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		3A918EF4232A6B2300F6E580 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,6 +572,8 @@
 			isa = PBXGroup;
 			children = (
 				3A816896233136DA00BE9246 /* ArrayControl.swift */,
+				3A81689D23326DAA00BE9246 /* FirebaseAuthManager.swift */,
+				3A81689A23326CB400BE9246 /* Login */,
 				3A16853923300DCA00A5E9E8 /* Product */,
 				3A16853D2330173000A5E9E8 /* Favorites */,
 				3AA5669F23304A0600331948 /* Map */,
@@ -585,6 +608,7 @@
 		555C91AA1D0F0731003E84E3 /* Ways */ = {
 			isa = PBXGroup;
 			children = (
+				3A81689F23326DF800BE9246 /* Ways.entitlements */,
 				82624385358A41C58F2B5299 /* BMSCredentials.plist */,
 				555C91AB1D0F0731003E84E3 /* AppDelegate.swift */,
 				555C91AD1D0F0731003E84E3 /* ViewController.swift */,
@@ -592,6 +616,7 @@
 				555C91B21D0F0731003E84E3 /* Assets.xcassets */,
 				555C91B41D0F0731003E84E3 /* LaunchScreen.storyboard */,
 				555C91B71D0F0731003E84E3 /* Info.plist */,
+				3A816898233268A700BE9246 /* GoogleService-Info.plist */,
 				3AEC1DC8232F16A2006915E6 /* Second Version */,
 				3AEC1DC7232F1683006915E6 /* First Version */,
 			);
@@ -713,6 +738,11 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = SRXXZJ8JG5;
 						LastSwiftMigration = 1030;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					555C91BB1D0F0731003E84E3 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -765,6 +795,7 @@
 				89D48B951B0A477DB8C47A16 /* BMSCredentials.plist in Resources */,
 				3A05BEF1232B3B3800C56F01 /* ItemCustomization.storyboard in Resources */,
 				3A05BEF3232B3B4600C56F01 /* AddCustomization.storyboard in Resources */,
+				3A816899233268A800BE9246 /* GoogleService-Info.plist in Resources */,
 				3A05BEF7232B3BD900C56F01 /* AddEvent.storyboard in Resources */,
 				3A05BEFB232B3CCA00C56F01 /* InterestEvent.storyboard in Resources */,
 				3A05BEF5232B3BCE00C56F01 /* Event.storyboard in Resources */,
@@ -907,6 +938,7 @@
 				3AEC1DD6232FB25A006915E6 /* AddCategorieController.swift in Sources */,
 				3A05BEE4232B299900C56F01 /* EventPubController.swift in Sources */,
 				3AEC1DD4232F3D80006915E6 /* SellerPerfilController.swift in Sources */,
+				3A81689E23326DAA00BE9246 /* FirebaseAuthManager.swift in Sources */,
 				3A566251232AAFD3005AC30C /* ScheduleController.swift in Sources */,
 				3A78C1682325A89D00C23288 /* AddEvent.swift in Sources */,
 				3A566257232AB1C7005AC30C /* EventInterestCell.swift in Sources */,
@@ -914,6 +946,7 @@
 				3A0A88812326809C00844477 /* PerfilController.swift in Sources */,
 				3A918F01232A7BE500F6E580 /* ExcFavoriteList.swift in Sources */,
 				3A78C15B2325A89D00C23288 /* CustomController.swift in Sources */,
+				3AD49B3723327FEF00F6EE6F /* LogoutViewController.swift in Sources */,
 				3A918EFB232A6BE000F6E580 /* EventPubCell.swift in Sources */,
 				3A918EF6232A6B8400F6E580 /* ExchangePubCell.swift in Sources */,
 				3AEC1DD8232FB500006915E6 /* CategorieCell.swift in Sources */,
@@ -951,7 +984,9 @@
 				3A16854823301DD200A5E9E8 /* MyPerfilController.swift in Sources */,
 				3A56625D232AC395005AC30C /* ExchangeFavoriteDetail.swift in Sources */,
 				3A918F05232A823100F6E580 /* ExchangeSwift.swift in Sources */,
+				3A2A6D9C2333A53700B6D451 /* RegisterController.swift in Sources */,
 				3A918EED2329717000F6E580 /* FavoriteController.swift in Sources */,
+				3A81689C23326CCD00BE9246 /* LoginViewController.swift in Sources */,
 				3A0C8387232FD42B00660504 /* SellerItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1120,6 +1155,7 @@
 			baseConfigurationReference = E4E69CE1C5DEC1AD3DC670FE /* Pods-Ways.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Ways/Ways.entitlements;
 				DEVELOPMENT_TEAM = SRXXZJ8JG5;
 				INFOPLIST_FILE = Ways/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -1138,6 +1174,7 @@
 			baseConfigurationReference = 66CDF627E753A6268F473762 /* Pods-Ways.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Ways/Ways.entitlements;
 				DEVELOPMENT_TEAM = SRXXZJ8JG5;
 				INFOPLIST_FILE = Ways/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

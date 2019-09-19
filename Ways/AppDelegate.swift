@@ -5,7 +5,7 @@
 
 import UIKit
 import BMSCore
-
+import Firebase
 
 
 
@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let myBMSClient = BMSClient.sharedInstance
         myBMSClient.initialize(bluemixRegion: BMSClient.Region.usSouth)
         myBMSClient.requestTimeout = 10.0 // seconds
+        FirebaseApp.configure()
 
         
 

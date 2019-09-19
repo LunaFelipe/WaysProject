@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import AVFoundation
 
-class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
     
     var categorieItem: String?
     let imagePicker = UIImagePickerController()
@@ -17,13 +19,17 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
     
     var pickerCondition = ["Novo", "Usado"]
     
+    @IBOutlet var tableViewB: UITableView!
     @IBOutlet weak var titleItem: UITextField!
     @IBOutlet weak var price: UITextField!
     @IBOutlet weak var condition: UITextField!
     @IBOutlet weak var categorie: UILabel!
-    @IBOutlet weak var descriptionitem: UITextField!
+    @IBOutlet weak var imageButton: UIButton!
+    //    @IBOutlet weak var descriptionitem: UITextField!
     @IBOutlet weak var photo: UIImageView!
-
+    @IBOutlet weak var descriptionItem: UITextView!
+    @IBOutlet weak var descriptionPlaceholder: UILabel!
+    
     @IBOutlet weak var output: UILabel!
     
     @IBAction func `switch`(_ sender: UISwitch) {
@@ -37,6 +43,109 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
             output.text = "Não"
         }
         
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let conditionPickerView = UIPickerView()
+        
+        conditionPickerView.delegate = self
+        descriptionItem.delegate = self
+        titleItem.delegate = self
+        price.delegate = self
+        condition.delegate = self
+        
+        descriptionPlaceholder.isHidden = !descriptionItem.text.isEmpty
+        
+        self.hideKeyboardWhenTappedAround()
+        
+        condition.inputView = conditionPickerView
+        
+        showConditionPicker()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    func setTextField(_ aRect: CGRect, _ currentTextField: UITextField) {
+        if aRect.contains(currentTextField.frame.origin) {
+            
+            let tableViewY = tableViewB.frame.origin.y
+            
+            let convertedTextField = currentTextField.convert(currentTextField.frame.origin, to: self.view)
+            
+            let frame = CGRect(x: convertedTextField.x,
+                               y: convertedTextField.y - tableViewY,
+                               width: currentTextField.frame.width,
+                               height: currentTextField.frame.height)
+            
+            self.tableViewB.scrollRectToVisible(frame, animated: true)
+        }
+    }
+    
+    func setTextView(_ aRect: CGRect, _ currentTextView: UITextView) {
+        if aRect.contains(currentTextView.frame.origin) {
+            
+            let tableViewY = tableViewB.frame.origin.y
+            
+            let convertedTextView = currentTextView.convert(currentTextView.frame.origin, to: self.view)
+            
+            let frame = CGRect(x: convertedTextView.x,
+                               y: convertedTextView.y - tableViewY,
+                               width: currentTextView.frame.width,
+                               height: currentTextView.frame.height)
+            
+            self.tableViewB.scrollRectToVisible(frame, animated: true)
+        }
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            
+            //Keyboard size
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let kbSize = keyboardRectangle.size.height
+            
+            guard let currentTextField = view.getSelectedTextField() else {
+                return
+            }
+            
+            if notification.name == UIResponder.keyboardDidShowNotification ||
+                notification.name == UIResponder.keyboardWillChangeFrameNotification {
+                
+                let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: kbSize, right: 0)
+                
+                self.tableViewB.contentInset = contentInsets
+                self.tableViewB.scrollIndicatorInsets = contentInsets
+                
+                var aRect = self.view.frame
+                aRect.size.height -= kbSize
+                
+                if aRect.contains(currentTextField.frame.origin) {
+                    
+                    let tableViewY = tableViewB.frame.origin.y
+                    
+                    let frame = CGRect(x: currentTextField.frame.origin.x,
+                                       y: currentTextField.frame.origin.y ,
+                                       width: currentTextField.frame.width,
+                                       height: currentTextField.frame.height)
+                    
+                    self.tableViewB.scrollRectToVisible(frame, animated: true)
+                }
+            }
+            
+            if notification.name == UIResponder.keyboardWillHideNotification {
+                
+                let contentInsets = UIEdgeInsets.zero
+                
+                self.tableViewB.contentInset = contentInsets
+                self.tableViewB.scrollIndicatorInsets = contentInsets
+            }
+            
+        }
     }
     
     @IBAction func photoButtom(_ sender: UIButton) {
@@ -103,18 +212,6 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
         self.dismiss(animated: true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let conditionPickerView = UIPickerView()
-        
-        conditionPickerView.delegate = self
-        
-        condition.inputView = conditionPickerView
-        
-        showConditionPicker()
-    }
-    
     func showConditionPicker(){
         
         //ToolBar
@@ -154,21 +251,97 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
         return 1
     }
     
+    func inputMissingFeedback() {
+        let textFields: [UITextField] = [titleItem, price, condition]
+        for textField in textFields {
+            if textField.text?.isEmpty ?? true {
+                if #available(iOS 10.0, *) {
+                    shakeTextField(textField: textField, for: 1, placeholder: textField.placeholder ?? "Insira um valor")
+                }
+            }
+        }
+        
+        if descriptionItem.text.isEmpty {
+            if #available(iOS 10.0, *) {
+                shakeLabel(label: descriptionPlaceholder, for: 1)
+            }
+        }
+        
+        //Improve this logic to a generic label
+        if categorie.text == "Selecione uma categoria" {
+            if #available(iOS 10.0, *) {
+                shakeLabel(label: categorie, for: 1)
+            }
+        }
+        
+        if photo.image == nil {
+            if #available(iOS 10.0, *) {
+                shakeButton(button: imageButton, for: 1)
+            }
+        }
+        
+        // Dismiss keyboard and scroll back to top
+        let isAllInformationInputed: Bool = titleItem.text?.isEmpty == false &&
+            price.text?.isEmpty == false &&
+            condition.text?.isEmpty == false &&
+            descriptionItem.text.isEmpty == false &&
+            categorie.text != "Selecione uma categoria" &&
+            photo.image != nil
+        
+        if isAllInformationInputed == false {
+            for textField in textFields {
+                textField.resignFirstResponder()
+            }
+            descriptionItem.resignFirstResponder()
+            
+            tableView.scrollsToTop = true
+        }
+        
+    }
+    
     @IBAction func doneButtom(_ sender: Any) {
         
-        itensScreen?.addItem(item: Item(title: titleItem.text ?? "",
-                                        price: price.text ?? "",
-                                        condition: condition.text ?? "",
-                                        categorie: categorie.text ?? "",
-                                        description: descriptionitem.text ?? "",
-                                        photo: photo.image!,
-                                        exchange: output.text ?? "",
-                                        isFavorite: false 
-                                              ))
-        performSegue(withIdentifier: "backToItens", sender: nil)
+//        let ref = Database.database().reference().root
+//        guard let userKey = Auth.auth().currentUser?.uid else {return}
+        
+        let isAllInformationInputed: Bool = titleItem.text?.isEmpty == false &&
+            price.text?.isEmpty == false &&
+            condition.text?.isEmpty == false &&
+            descriptionItem.text.isEmpty == false &&
+            categorie.text != "Selecione uma categoria" &&
+            photo.image != nil
+        
+        
+        if isAllInformationInputed {
+            itensScreen?.addItem(item: Item(title: titleItem.text ?? "",
+                                            price: price.text ?? "",
+                                            condition: condition.text ?? "",
+                                            categorie: categorie.text ?? "",
+                                            description: descriptionItem.text ?? "",
+                                            photo: photo.image!,
+                                            exchange: output.text ?? "",
+                                            isFavorite: false
+            ))
+            var itemAdicionado = Item(title: titleItem.text ?? "",
+                                      price: price.text ?? "",
+                                      condition: condition.text ?? "",
+                                      categorie: categorie.text ?? "",
+                                      description: descriptionItem.text ?? "",
+                                      photo: photo.image!,
+                                      exchange: output.text ?? "",
+                                      isFavorite: false)
+            
+            performSegue(withIdentifier: "backToItens", sender: nil)
+            
+        } else {
+            inputMissingFeedback()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        let footerView = UIView()
+        tableView.tableFooterView = footerView
         
         if categorieItem?.isEmpty ?? true {
             categorie.text = "Selecione uma categoria"
@@ -181,4 +354,229 @@ class AddItem: UITableViewController, UIPickerViewDataSource, UIPickerViewDelega
         
     }
 
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        //Dismiss keyboard when return key is tapped
+        if string == "\n" {
+            titleItem.resignFirstResponder()
+            return false
+        }
+        
+        return true
+    }
+    
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        //Dismiss keyboard when return key is tapped
+        if text == "\n" {
+            descriptionItem.resignFirstResponder()
+            return false
+        }
+        
+        //Limit number of characters
+        let currentText = textView.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        let changedText = currentText.replacingCharacters(in: stringRange, with: text)
+        
+        return changedText.count <= 300
+    }
+    
+    
+    func textViewDidChange(_ textView: UITextView) {
+        //Hide placeholder when textView isn't empty
+        descriptionPlaceholder.isHidden = !descriptionItem.text.isEmpty
+        
+        // Resize text view
+        let lastScrollOffset = tableView.contentOffset
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        tableView.layer.removeAllAnimations()
+        tableView.setContentOffset(lastScrollOffset, animated: false)
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        tableView.allowsSelection = false
+    }
+    
+    @objc func allowRowSelection(_ notification: NSNotification) {
+        if notification.name == UIResponder.keyboardDidHideNotification {
+            tableView.allowsSelection = true
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        var height: CGFloat = 78
+        
+        switch indexPath.row {
+        case 0:
+            height = 177
+        case 5:
+            height = 46 + descriptionItem.frame.height
+        case 6:
+            height = 64
+        default:
+            height = 78
+        }
+        
+        return height
+    }
+    
+}
+
+extension UIView {
+    // TEXT FIELD
+    func getSelectedTextField() -> UITextField? {
+        
+        let totalTextFields = getTextFieldsInView(view: self)
+        
+        for textField in totalTextFields{
+            if textField.isFirstResponder{
+                return textField
+            }
+        }
+        
+        return nil
+        
+    }
+    
+    func getTextFieldsInView(view: UIView) -> [UITextField] {
+        
+        var totalTextFields = [UITextField]()
+        
+        for subview in view.subviews as [UIView] {
+            if let textField = subview as? UITextField {
+                totalTextFields += [textField]
+            } else {
+                totalTextFields += getTextFieldsInView(view: subview)
+            }
+        }
+        
+        return totalTextFields
+    }
+    
+    // TEXT VIEW
+    func getSelectedTextView() -> UITextView? {
+        
+        let totalTextViews = getTextViewInView(view: self)
+        
+        for textView in totalTextViews {
+            if textView.isFirstResponder{
+                return textView
+            }
+        }
+        
+        return nil
+        
+    }
+    
+    func getTextViewInView(view: UIView) -> [UITextView] {
+        
+        var totalTextViews = [UITextView]()
+        
+        for subview in view.subviews as [UIView] {
+            if let textView = subview as? UITextView {
+                totalTextViews += [textView]
+            } else {
+                totalTextViews += getTextViewInView(view: subview)
+            }
+        }
+        
+        return totalTextViews
+    }
+}
+
+extension UITableViewController {
+    // KEYBOARD
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UITableViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+}
+
+@available(iOS 10.0, *)
+extension UITableViewController {
+    // Lack of input feedback
+    //Shake a textField when detect an error input
+    func shakeTextField(textField: UITextField, for duration: TimeInterval, placeholder: String) {
+        let normalColor = textField.textColor
+        
+        let translation: CGFloat = 10
+        
+        let propertyAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 0.3) {
+            textField.transform = CGAffineTransform(translationX: translation, y: 0)
+            textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            textField.textColor = .red
+        }
+        
+        propertyAnimator.addAnimations({textField.transform = CGAffineTransform(translationX: 0, y: 0)}, delayFactor: 0.2)
+        
+        propertyAnimator.addCompletion { (_) in
+            textField.layer.borderWidth = 0
+            textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+            textField.textColor = normalColor
+        }
+        
+        propertyAnimator.startAnimation()
+        
+        //Vibrate
+        UIDevice.vibrate()
+    }
+    
+    //Shake a textView when detect an error input
+    func shakeLabel(label: UILabel, for duration: TimeInterval) {
+        let normalColor = label.textColor
+        
+        let translation: CGFloat = 10
+        
+        let propertyAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 0.3) {
+            label.transform = CGAffineTransform(translationX: translation, y: 0)
+            label.textColor = .red
+        }
+        
+        propertyAnimator.addAnimations({label.transform = CGAffineTransform(translationX: 0, y: 0)}, delayFactor: 0.2)
+        
+        propertyAnimator.addCompletion { (_) in
+            label.layer.borderWidth = 0
+            label.textColor = normalColor
+        }
+        
+        propertyAnimator.startAnimation()
+        
+        //Vibrate
+        UIDevice.vibrate()
+    }
+    
+    //Shake a button when detect an error input
+    func shakeButton(button: UIButton, for duration: TimeInterval) {
+        let normalColor = button.tintColor
+        
+        let translation: CGFloat = 10
+        
+        let propertyAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 0.3) {
+            button.transform = CGAffineTransform(translationX: translation, y: 0)
+            button.tintColor = .red
+        }
+        
+        propertyAnimator.addAnimations({button.transform = CGAffineTransform(translationX: 0, y: 0)}, delayFactor: 0.2)
+        
+        propertyAnimator.addCompletion { (_) in
+            button.layer.borderWidth = 0
+            button.tintColor = normalColor
+        }
+        
+        propertyAnimator.startAnimation()
+        
+        //Vibrate
+        UIDevice.vibrate()
+    }
+}
+
+extension UIDevice {
+    static func vibrate() {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+    }
 }

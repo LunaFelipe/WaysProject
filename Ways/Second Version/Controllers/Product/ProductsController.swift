@@ -78,7 +78,7 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addItem" {
-            if let trocaVC = segue.destination as? AddItem {
+            if let trocaVC = segue.destination as? AddItemController {
                 trocaVC.itensScreen = self
             }
         } else if segue.identifier == "itemDetail" {

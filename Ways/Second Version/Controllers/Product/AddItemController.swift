@@ -258,27 +258,33 @@ class AddItemController: UITableViewController, UIPickerViewDataSource, UIPicker
         for textField in textFields {
             if textField.text?.isEmpty ?? true {
                 if #available(iOS 10.0, *) {
-                    shakeTextField(textField: textField, for: 1, placeholder: textField.placeholder ?? "Insira um valor")
+                    shakeTextField(textField: textField, for: 1, placeholder: textField.placeholder ?? "Insira um valor", textColor: .black)
                 }
             }
         }
         
         if descriptionItem.text.isEmpty {
             if #available(iOS 10.0, *) {
-                shakeLabel(label: descriptionPlaceholder, for: 1)
+                shakeLabel(label: descriptionPlaceholder, for: 1, labelColor: .lightGray)
             }
         }
         
         //Improve this logic to a generic label
         if categorie.text == "Selecione uma categoria" {
             if #available(iOS 10.0, *) {
-                shakeLabel(label: categorie, for: 1)
+                shakeLabel(label: categorie, for: 1, labelColor: .lightGray)
             }
         }
         
         if photo.image == nil {
             if #available(iOS 10.0, *) {
-                shakeButton(button: imageButton, for: 1)
+                shakeButton(button: imageButton, for: 1, buttonColor: #colorLiteral(red: 0.1411764706, green: 0.5411764706, blue: 0.2392156863, alpha: 1))
+            }
+        }
+        
+        if photo2.image == nil {
+            if #available(iOS 10.0, *) {
+                shakeButton(button: imageButton2, for: 1, buttonColor: #colorLiteral(red: 0.1411764706, green: 0.5411764706, blue: 0.2392156863, alpha: 1))
             }
         }
         
@@ -495,8 +501,7 @@ extension UITableViewController {
 extension UITableViewController {
     // Lack of input feedback
     //Shake a textField when detect an error input
-    func shakeTextField(textField: UITextField, for duration: TimeInterval, placeholder: String) {
-        let normalColor = textField.textColor
+    func shakeTextField(textField: UITextField, for duration: TimeInterval, placeholder: String, textColor: UIColor) {
         
         let translation: CGFloat = 10
         
@@ -511,7 +516,7 @@ extension UITableViewController {
         propertyAnimator.addCompletion { (_) in
             textField.layer.borderWidth = 0
             textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-            textField.textColor = normalColor
+            textField.textColor = textColor
         }
         
         propertyAnimator.startAnimation()
@@ -521,9 +526,7 @@ extension UITableViewController {
     }
     
     //Shake a textView when detect an error input
-    func shakeLabel(label: UILabel, for duration: TimeInterval) {
-        let normalColor = label.textColor
-        
+    func shakeLabel(label: UILabel, for duration: TimeInterval, labelColor: UIColor) {
         let translation: CGFloat = 10
         
         let propertyAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 0.3) {
@@ -535,7 +538,7 @@ extension UITableViewController {
         
         propertyAnimator.addCompletion { (_) in
             label.layer.borderWidth = 0
-            label.textColor = normalColor
+            label.textColor = labelColor
         }
         
         propertyAnimator.startAnimation()
@@ -545,8 +548,7 @@ extension UITableViewController {
     }
     
     //Shake a button when detect an error input
-    func shakeButton(button: UIButton, for duration: TimeInterval) {
-        let normalColor = button.tintColor
+    func shakeButton(button: UIButton, for duration: TimeInterval, buttonColor: UIColor) {
         
         let translation: CGFloat = 10
         
@@ -559,7 +561,7 @@ extension UITableViewController {
         
         propertyAnimator.addCompletion { (_) in
             button.layer.borderWidth = 0
-            button.tintColor = normalColor
+            button.tintColor = buttonColor
         }
         
         propertyAnimator.startAnimation()

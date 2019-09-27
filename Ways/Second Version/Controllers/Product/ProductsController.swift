@@ -22,6 +22,12 @@ struct Item {
 
 class ProductsController: UITableViewController, UISearchBarDelegate {
     
+    // FILTER
+    var isFilterApplied: Bool = false
+    var categorieSelected: [String] = []
+    var distanceSelected: Int = 0
+    var priceSelected: Int = 0
+    
     //Table View informations
     var searchController: UISearchController? = nil
     var filteredItems: [Item] = []
@@ -38,6 +44,7 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        isFilterApplied = false
         setUpSearchController()
     }
     
@@ -50,7 +57,7 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
                     let customizedCancelButton: UIButton = subView2 as! UIButton
                     customizedCancelButton.isEnabled = true
                     customizedCancelButton.setTitle("", for: .normal)
-                    let image1 = UIImage(named: "favorito")
+                    let image1 = UIImage(named: "filter")
                     customizedCancelButton.setBackgroundImage(image1, for: .normal)
                     customizedCancelButton.addTarget(self, action: #selector(filterTapped), for: .touchUpInside)
                 }
@@ -159,6 +166,33 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
         
     }
     
+//    func filterDistanceAndTags() {
+//        var haversineResult: Double = 0
+//        self.mapView.removeAnnotations(markets)
+//        for market in markets {
+//            haversineResult = haversineDinstance(la1: locationManager.location!.coordinate.latitude,
+//                                                 lo1: locationManager.location!.coordinate.longitude,
+//                                                 la2: market.coordinate.latitude,
+//                                                 lo2: market.coordinate.longitude)
+//            if Int(haversineResult) < distanceSelected {
+//                if Set(market.category).isSuperset(of: tagsSelected) {
+//                    self.mapView.addAnnotation(market)
+//                }
+//            }
+//        }
+//    }
+    
+    @IBAction func filterPress(_ segue: UIStoryboardSegue) {
+            
+            if let filter = segue.source as? FilterController {
+                self.isFilterApplied = filter.isFilterApplied
+                self.distanceSelected = filter.distanceSelected
+                self.categorieSelected = filter.selectedCategories
+                self.priceSelected = filter.priceSelected
+                
+//                filterDistanceAndTags()
+            }
+    }
 }
 
 extension Item: Equatable {

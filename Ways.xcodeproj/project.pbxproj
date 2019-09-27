@@ -55,7 +55,8 @@
 		3A56625B232AB276005AC30C /* InterestSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56625A232AB276005AC30C /* InterestSwift.swift */; };
 		3A56625D232AC395005AC30C /* ExchangeFavoriteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56625C232AC395005AC30C /* ExchangeFavoriteDetail.swift */; };
 		3A56625F232AC4ED005AC30C /* CustomFavoriteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56625E232AC4ED005AC30C /* CustomFavoriteDetail.swift */; };
-		3A6EBCD2233835B700B6EA15 /* FilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6EBCD1233835B700B6EA15 /* FilterController.swift */; };
+		3A6EBCD423383A6700B6EA15 /* FilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6EBCD323383A6700B6EA15 /* FilterController.swift */; };
+		3A6EBCD62338482B00B6EA15 /* CategorieFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6EBCD52338482B00B6EA15 /* CategorieFilterController.swift */; };
 		3A78C15B2325A89D00C23288 /* CustomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A78C1492325A89C00C23288 /* CustomController.swift */; };
 		3A78C15C2325A89D00C23288 /* CustomDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A78C14A2325A89C00C23288 /* CustomDetail.swift */; };
 		3A78C15D2325A89D00C23288 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A78C14B2325A89C00C23288 /* CustomCell.swift */; };
@@ -179,7 +180,8 @@
 		3A56625A232AB276005AC30C /* InterestSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestSwift.swift; sourceTree = "<group>"; };
 		3A56625C232AC395005AC30C /* ExchangeFavoriteDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeFavoriteDetail.swift; sourceTree = "<group>"; };
 		3A56625E232AC4ED005AC30C /* CustomFavoriteDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFavoriteDetail.swift; sourceTree = "<group>"; };
-		3A6EBCD1233835B700B6EA15 /* FilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterController.swift; sourceTree = "<group>"; };
+		3A6EBCD323383A6700B6EA15 /* FilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterController.swift; sourceTree = "<group>"; };
+		3A6EBCD52338482B00B6EA15 /* CategorieFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorieFilterController.swift; sourceTree = "<group>"; };
 		3A78C1492325A89C00C23288 /* CustomController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomController.swift; sourceTree = "<group>"; };
 		3A78C14A2325A89C00C23288 /* CustomDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDetail.swift; sourceTree = "<group>"; };
 		3A78C14B2325A89C00C23288 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				3AEC1DCB232F1786006915E6 /* ProductItemCell.swift */,
 				3AEC1DCF232F1A1F006915E6 /* AddItemController.swift */,
 				3AEC1DD1232F39B6006915E6 /* ItemDetailController.swift */,
+				3A6EBCD72338DF5D00B6EA15 /* Filter */,
 				3A16853A23300DED00A5E9E8 /* AddCategorie */,
 			);
 			path = Product;
@@ -362,6 +365,15 @@
 				3A566256232AB1C7005AC30C /* EventInterestCell.swift */,
 			);
 			path = Schedule;
+			sourceTree = "<group>";
+		};
+		3A6EBCD72338DF5D00B6EA15 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				3A6EBCD52338482B00B6EA15 /* CategorieFilterController.swift */,
+				3A6EBCD323383A6700B6EA15 /* FilterController.swift */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		3A78C1482325A89C00C23288 /* Customization */ = {
@@ -615,7 +627,6 @@
 				555C91AB1D0F0731003E84E3 /* AppDelegate.swift */,
 				555C91AD1D0F0731003E84E3 /* ViewController.swift */,
 				555C91AF1D0F0731003E84E3 /* Main.storyboard */,
-				3A6EBCD1233835B700B6EA15 /* FilterController.swift */,
 				555C91B21D0F0731003E84E3 /* Assets.xcassets */,
 				555C91B41D0F0731003E84E3 /* LaunchScreen.storyboard */,
 				555C91B71D0F0731003E84E3 /* Info.plist */,
@@ -932,7 +943,7 @@
 				3A05BEE6232B32AE00C56F01 /* ConfirmedEventController.swift in Sources */,
 				3A78C15E2325A89D00C23288 /* AddCustom.swift in Sources */,
 				3A05BEEA232B32EB00C56F01 /* InterestEventController.swift in Sources */,
-				3A6EBCD2233835B700B6EA15 /* FilterController.swift in Sources */,
+				3A6EBCD423383A6700B6EA15 /* FilterController.swift in Sources */,
 				3A918EF3232A6AC300F6E580 /* PublicationsController.swift in Sources */,
 				3A78C1672325A89D00C23288 /* EventController.swift in Sources */,
 				3A566259232AB26A005AC30C /* ConfirmedSwift.swift in Sources */,
@@ -952,6 +963,7 @@
 				3A78C15B2325A89D00C23288 /* CustomController.swift in Sources */,
 				3AD49B3723327FEF00F6EE6F /* LogoutViewController.swift in Sources */,
 				3A918EFB232A6BE000F6E580 /* EventPubCell.swift in Sources */,
+				3A6EBCD62338482B00B6EA15 /* CategorieFilterController.swift in Sources */,
 				3A918EF6232A6B8400F6E580 /* ExchangePubCell.swift in Sources */,
 				3AEC1DD8232FB500006915E6 /* CategorieCell.swift in Sources */,
 				3A168545233019B100A5E9E8 /* FavoriteSwift.swift in Sources */,

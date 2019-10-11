@@ -321,7 +321,7 @@ class AddItemController: UITableViewController, UIPickerViewDataSource, UIPicker
             itensScreen?.addItem(item: Item(title: titleItem.text ?? "",
                                             price: price.text ?? "",
                                             condition: condition.text ?? "",
-                                            categorie: categorie.text ?? "",
+                                            categorie: [categorie?.text ?? ""],
                                             description: descriptionItem.text ?? "",
                                             photo: photo.image!,
                                             exchange: output.text ?? "",

@@ -14,7 +14,11 @@ class CategorieFilterController: UITableViewController {
 
     var sections = ["Vestuario", "Calçados", "Acessórios" ]
     
-    var items = [["Camisa", "Camiseta", "Polo", "Jaqueta", "Moletom", "Corta Vento", "Calça", "Bermuda", "Shorts" ], ["Tênis", "Bota", "Sapato", "Chinelo", "Slipe on"  ], ["Mochila", "Bolsa", "Pochete", "Shoulder Bag", "Relógio", "Óculos", "Pulseiras" ]]
+    var items = [
+                    ["Camisa", "Camiseta", "Polo", "Jaqueta", "Moletom", "Corta Vento", "Calça", "Bermuda", "Shorts" ],
+                    ["Tênis", "Bota", "Sapato", "Chinelo", "Slipe on"  ],
+                    ["Mochila", "Bolsa", "Pochete", "Shoulder Bag", "Relógio", "Óculos", "Pulseiras" ]
+                ]
     //    var categories:[String] = []
     var selectedCategories:[String] = []
     var categorias = ""
@@ -65,7 +69,7 @@ class CategorieFilterController: UITableViewController {
         }
         
         selectedCategories.append(items[indexPath.section][indexPath.row])
-        self.categorias = self.categorias + "\(items[indexPath.section][indexPath.row]) | "
+        self.categorias = self.categorias + "\(items[indexPath.section][indexPath.row])"
         
         // self.performSegue(withIdentifier: "returnToMap", sender: name[indexPath.row])
         

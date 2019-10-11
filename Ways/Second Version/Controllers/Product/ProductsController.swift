@@ -12,7 +12,7 @@ struct Item {
     var title: String
     var price: String
     var condition: String
-    var categorie: String
+    var categorie: [String]
     var description: String
     var photo: UIImage
     var exchange: String
@@ -24,7 +24,7 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
     
     // FILTER
     var isFilterApplied: Bool = false
-    var categorieSelected: [String] = []
+    var categorieSelected: [String] = [""]
     var distanceSelected: Int = 0
     var priceSelected: Int = 0
     
@@ -166,21 +166,24 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
         
     }
     
-//    func filterDistanceAndTags() {
-//        var haversineResult: Double = 0
-//        self.mapView.removeAnnotations(markets)
-//        for market in markets {
-//            haversineResult = haversineDinstance(la1: locationManager.location!.coordinate.latitude,
-//                                                 lo1: locationManager.location!.coordinate.longitude,
-//                                                 la2: market.coordinate.latitude,
-//                                                 lo2: market.coordinate.longitude)
-//            if Int(haversineResult) < distanceSelected {
-//                if Set(market.category).isSuperset(of: tagsSelected) {
-//                    self.mapView.addAnnotation(market)
+    func filterDistanceAndTags() {
+////        var haversineResult: Double = 0
+////        self.loadView().removeAnnotations(filteredItems)
+        for item in filteredItems {
+////            haversineResult = haversineDinstance(la1: locationManager.location!.coordinate.latitude,
+////                                                 lo1: locationManager.location!.coordinate.longitude,
+////                                                 la2: item.coordinate.latitude,
+////                                                 lo2: item.coordinate.longitude)
+////            if Int(haversineResult) < distanceSelected {
+        if Set(item.categorie).isSuperset(of: categorieSelected) {
+            self.loadView()
+            self.tableView.reloadData()
 //                }
-//            }
-//        }
-//    }
+////            }
+////        }
+        }
+    }
+}
     
     @IBAction func filterPress(_ segue: UIStoryboardSegue) {
             
@@ -190,7 +193,7 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
                 self.categorieSelected = filter.selectedCategories
                 self.priceSelected = filter.priceSelected
                 
-//                filterDistanceAndTags()
+                filterDistanceAndTags()
             }
     }
 }

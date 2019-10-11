@@ -14,7 +14,7 @@ class FilterController: UITableViewController, UIPickerViewDelegate, UIPickerVie
     var categorieItem: String?
     var pickerCondition = ["Novo", "Usado"]
     var priceSelected: Int = 100
-    var distanceSelected: Int = 25
+    var distanceSelected: Int = 20
     var isFilterApplied: Bool = false
 
     @IBOutlet weak var condition: UITextField!
@@ -30,7 +30,7 @@ class FilterController: UITableViewController, UIPickerViewDelegate, UIPickerVie
         priceSlider.value = Float(priceSelected)
         price.text = "R$ \(priceSelected)"
         
-        distanceSelected = 25
+        distanceSelected = 20
         distanceSlider.value = Float(distanceSelected)
         distance.text = "\(distanceSelected) km"
         
@@ -122,7 +122,7 @@ class FilterController: UITableViewController, UIPickerViewDelegate, UIPickerVie
             priceSlider.value = Float(priceSelected)
             price.text = " R$ \(priceSelected)"
         }
-        if distanceSelected != 25 {
+        if distanceSelected != 20 {
             distanceSlider.value = Float(distanceSelected)
             distance.text = "\(distanceSelected) km"
         }

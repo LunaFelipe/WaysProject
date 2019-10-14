@@ -9,19 +9,12 @@
 import UIKit
 
 class CategorieFilterController: UITableViewController {
-    
-    var filterScreen: FilterController?
 
     var sections = ["Vestuario", "Calçados", "Acessórios" ]
     
-    var items = [
-                    ["Camisa", "Camiseta", "Polo", "Jaqueta", "Moletom", "Corta Vento", "Calça", "Bermuda", "Shorts" ],
-                    ["Tênis", "Bota", "Sapato", "Chinelo", "Slipe on"  ],
-                    ["Mochila", "Bolsa", "Pochete", "Shoulder Bag", "Relógio", "Óculos", "Pulseiras" ]
-                ]
+    var items = [["Camisa", "Camiseta", "Polo", "Jaqueta", "Moletom", "Corta Vento", "Calça", "Bermuda", "Shorts" ], ["Tênis", "Bota", "Sapato", "Chinelo", "Slipe on"  ], ["Mochila", "Bolsa", "Pochete", "Shoulder Bag", "Relógio", "Óculos", "Pulseiras" ]]
     //    var categories:[String] = []
     var selectedCategories:[String] = []
-    var categorias = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +62,6 @@ class CategorieFilterController: UITableViewController {
         }
         
         selectedCategories.append(items[indexPath.section][indexPath.row])
-        self.categorias = self.categorias + "\(items[indexPath.section][indexPath.row])"
         
         // self.performSegue(withIdentifier: "returnToMap", sender: name[indexPath.row])
         
@@ -83,8 +75,9 @@ class CategorieFilterController: UITableViewController {
     }
     
     @IBAction func doneButtom(_ sender: Any) {
-    
         
         performSegue(withIdentifier: "returnToFilter", sender: nil)
     }
+    
+    
 }

@@ -12,7 +12,7 @@ struct Item {
     var title: String
     var price: String
     var condition: String
-    var categorie: [String]
+    var categorie: String
     var description: String
     var photo: UIImage
     var exchange: String
@@ -21,12 +21,6 @@ struct Item {
 }
 
 class ProductsController: UITableViewController, UISearchBarDelegate {
-    
-    // FILTER
-    var isFilterApplied: Bool = false
-    var categorieSelected: [String] = [""]
-    var distanceSelected: Int = 0
-    var priceSelected: Int = 0
     
     //Table View informations
     var searchController: UISearchController? = nil
@@ -44,7 +38,6 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        isFilterApplied = false
         setUpSearchController()
     }
     
@@ -57,7 +50,7 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
                     let customizedCancelButton: UIButton = subView2 as! UIButton
                     customizedCancelButton.isEnabled = true
                     customizedCancelButton.setTitle("", for: .normal)
-                    let image1 = UIImage(named: "filter")
+                    let image1 = UIImage(named: "favorito")
                     customizedCancelButton.setBackgroundImage(image1, for: .normal)
                     customizedCancelButton.addTarget(self, action: #selector(filterTapped), for: .touchUpInside)
                 }
@@ -166,36 +159,6 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
         
     }
     
-    func filterDistanceAndTags() {
-////        var haversineResult: Double = 0
-////        self.loadView().removeAnnotations(filteredItems)
-        for item in filteredItems {
-////            haversineResult = haversineDinstance(la1: locationManager.location!.coordinate.latitude,
-////                                                 lo1: locationManager.location!.coordinate.longitude,
-////                                                 la2: item.coordinate.latitude,
-////                                                 lo2: item.coordinate.longitude)
-////            if Int(haversineResult) < distanceSelected {
-        if Set(item.categorie).isSuperset(of: categorieSelected) {
-            self.loadView()
-            self.tableView.reloadData()
-//                }
-////            }
-////        }
-        }
-    }
-}
-    
-    @IBAction func filterPress(_ segue: UIStoryboardSegue) {
-            
-            if let filter = segue.source as? FilterController {
-                self.isFilterApplied = filter.isFilterApplied
-                self.distanceSelected = filter.distanceSelected
-                self.categorieSelected = filter.selectedCategories
-                self.priceSelected = filter.priceSelected
-                
-                filterDistanceAndTags()
-            }
-    }
 }
 
 extension Item: Equatable {

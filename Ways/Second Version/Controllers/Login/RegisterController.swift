@@ -7,81 +7,55 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterController: UITableViewController {
 
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var profileType: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var location: UITextField!
+    @IBOutlet weak var contactNumber: UITextField!
+    @IBOutlet weak var email: UITextField!
+    
+    let signUpManager = FirebaseAuthManager()
     
     @IBAction func registerButtom(_ sender: Any) {
+        print("AAAAA")
+        print(name.text)
+        if let email = email.text, let password = password.text {
+            self.signUpManager.createUser(email: email, password: password) {[weak self] (success) in
+                guard let `self` = self else { return }
+                var message: String = ""
+                if (success) {
+                    message = "User was sucessfully created."
+                    
+                    let item = UserDatabase(key: self.name.text!, name: self.name.text!, profileType: self.profileType.text!, contactNumber: self.contactNumber.text!, location: self.location.text!, email: self.email.text!)
+                    
+                    let ref = Database.database().reference()
+                    guard let userKey = Auth.auth().currentUser?.uid else {return}
+                ref.child("User-Info").child(userKey).updateChildValues(item.toAnyObject() as! [AnyHashable : Any])
+                    
+                    self.navigationController?.dismiss(animated: true)
+                    
+                } else {
+                    message = "There was an error."
+                }
+                let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.display(alertController: alertController)
+            }
+        }
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    // MARK: - Table view data source
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    func display(alertController: UIAlertController) {
+        self.present(alertController, animated: true, completion: nil)
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

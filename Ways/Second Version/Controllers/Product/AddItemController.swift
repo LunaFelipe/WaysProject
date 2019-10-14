@@ -15,6 +15,8 @@ class AddItemController: UITableViewController, UIPickerViewDataSource, UIPicker
     var categorieItem: String?
     var imagePicker = UIImagePickerController()
     var imagePicked = 0
+    var imageUrl: String?
+    var imageUrl2: String?
     
     var itensScreen: ProductsController?
     
@@ -191,20 +193,28 @@ class AddItemController: UITableViewController, UIPickerViewDataSource, UIPicker
     func openGallary(){
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         //If you dont want to edit the photo then you can set allowsEditing to false
-//        imagePicker.allowsEditing = true
+        imagePicker.allowsEditing = true
         imagePicker.delegate = self
         self.present(imagePicker, animated: true, completion: nil)
     }
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            if imagePicked == 1 {
+        
+        if imagePicked == 1{
+            if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+                photo.image = editedImage
+            } else if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 photo.image = image
-            } else if imagePicked == 2 {
+            }
+        } else {
+            if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+                photo2.image = editedImage
+            } else if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 photo2.image = image
             }
         }
+        
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -318,21 +328,98 @@ class AddItemController: UITableViewController, UIPickerViewDataSource, UIPicker
             photo2.image != nil
         
         if isAllInformationInputed {
+            
+            //add item do firebase
+            let currentUser = Auth.auth().currentUser!.uid
+
             itensScreen?.addItem(item: Item(title: titleItem.text ?? "",
                                             price: price.text ?? "",
                                             condition: condition.text ?? "",
-                                            categorie: [categorie?.text ?? ""],
+                                            categorie: categorie.text ?? "",
                                             description: descriptionItem.text ?? "",
                                             photo: photo.image!,
                                             exchange: output.text ?? "",
                                             isFavorite: false,
                                             photo2: photo2.image!
             ))
+            
+            var storageRef = Storage.storage().reference().child(currentUser).child(titleItem.text!).child("image1")
+
+            if let uploadData = photo.image!.pngData(){
+                storageRef.putData(uploadData, metadata: nil, completion:
+                    { (metadata, error) in
+                        
+                        if error != nil {
+                            print(error)
+                            return
+                        }
+                        
+                        let imageRef = Storage.storage().reference().child((metadata?.path)!)
+                        
+                        imageRef.downloadURL { url, error in
+                            if let error = error {
+                                print(error)
+                                return
+                            } else {
+                                self.imageUrl = "\(url!)"
+
+                            }
+                        }
+                        
+                })
+            }
+            
+            storageRef = Storage.storage().reference().child(currentUser).child(titleItem.text!).child("image2")
+            if let uploadData = photo2.image!.pngData(){
+                storageRef.putData(uploadData, metadata: nil, completion:
+                    { (metadata, error) in
+                        
+                        if error != nil {
+                            print(error)
+                            return
+                        }
+                        
+                        var imageRef = Storage.storage().reference().child((metadata?.path)!).child("image1")
+                        
+                        imageRef.downloadURL { url, error in
+                            if let error = error {
+                                print(error)
+                                return
+                            } else {
+                                self.imageUrl = "\(url!)"
+                            }
+                        }
+                        
+                        imageRef = Storage.storage().reference().child((metadata?.path)!)
+                        
+                        imageRef.downloadURL { url, error in
+                            if let error = error {
+                                print(error)
+                                return
+                            } else {
+                                self.imageUrl2 = "\(url!)"
+                                let value = ItemDatabase(key: self.titleItem.text!, title: self.titleItem.text!, price: self.price.text!, condition: self.condition.text!, categorie: self.categorie.text!, description: self.descriptionItem.text!, imageUrl: self.imageUrl!, imageUrl2: self.imageUrl2!, exchange: self.output.text!)
+                                
+                                self.addItemToDatabase(values: value)
+                            }
+                        }
+                })
+            }
+            
             performSegue(withIdentifier: "backToItens", sender: nil)
             
         } else {
             inputMissingFeedback()
         }
+        
+    }
+    
+    
+    private func addItemToDatabase(values: ItemDatabase){
+        let ref = Database.database().reference().root
+        guard let userKey = Auth.auth().currentUser?.uid else {return}
+        
+        ref.child("User").child(userKey).child("produtos").child(titleItem.text!).updateChildValues(values.toAnyObject() as! [AnyHashable : Any])
         
     }
     

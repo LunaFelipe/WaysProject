@@ -109,6 +109,10 @@
 		555C91CC1D0F0731003E84E3 /* WaysUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C91CB1D0F0731003E84E3 /* WaysUITests.swift */; };
 		89D48B951B0A477DB8C47A16 /* BMSCredentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82624385358A41C58F2B5299 /* BMSCredentials.plist */; };
 		9266130C57EBA266D844CC24 /* Pods_WaysTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7420FE314772B9D78E8892 /* Pods_WaysTests.framework */; };
+		9CBFCC992338F14800A8BF0C /* ItemDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBFCC982338F14800A8BF0C /* ItemDatabase.swift */; };
+		9CBFCC9B2338F16D00A8BF0C /* ItemObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBFCC9A2338F16D00A8BF0C /* ItemObject.swift */; };
+		9CC6DF1C233A6DBC00A11F5A /* TypeOfRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC6DF1B233A6DBC00A11F5A /* TypeOfRegisterViewController.swift */; };
+		9CC6DF1E233A711A00A11F5A /* UserDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC6DF1D233A711A00A11F5A /* UserDatabase.swift */; };
 		ED73A493B0B4E8C7CEF3F1E6 /* Pods_WaysUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B541200C7F9C19EAD4D4DE /* Pods_WaysUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -242,6 +246,10 @@
 		66CDF627E753A6268F473762 /* Pods-Ways.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ways.release.xcconfig"; path = "Target Support Files/Pods-Ways/Pods-Ways.release.xcconfig"; sourceTree = "<group>"; };
 		82624385358A41C58F2B5299 /* BMSCredentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BMSCredentials.plist; sourceTree = "<group>"; };
 		82BF1C9EBDF7A882CBD85814 /* Pods-WaysTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaysTests.release.xcconfig"; path = "Target Support Files/Pods-WaysTests/Pods-WaysTests.release.xcconfig"; sourceTree = "<group>"; };
+		9CBFCC982338F14800A8BF0C /* ItemDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDatabase.swift; sourceTree = "<group>"; };
+		9CBFCC9A2338F16D00A8BF0C /* ItemObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemObject.swift; sourceTree = "<group>"; };
+		9CC6DF1B233A6DBC00A11F5A /* TypeOfRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfRegisterViewController.swift; sourceTree = "<group>"; };
+		9CC6DF1D233A711A00A11F5A /* UserDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatabase.swift; sourceTree = "<group>"; };
 		B6018AAA189BE5CCBF20B2FC /* Pods-WaysUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaysUITests.debug.xcconfig"; path = "Target Support Files/Pods-WaysUITests/Pods-WaysUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C46F9B0D8D2C2D929472F8C9 /* Pods_Ways.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ways.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7420FE314772B9D78E8892 /* Pods_WaysTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaysTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -578,6 +586,10 @@
 			isa = PBXGroup;
 			children = (
 				3AEC1DCA232F16B2006915E6 /* Controllers */,
+				9CBFCC982338F14800A8BF0C /* ItemDatabase.swift */,
+				9CBFCC9A2338F16D00A8BF0C /* ItemObject.swift */,
+				9CC6DF1B233A6DBC00A11F5A /* TypeOfRegisterViewController.swift */,
+				9CC6DF1D233A711A00A11F5A /* UserDatabase.swift */,
 			);
 			path = "Second Version";
 			sourceTree = "<group>";
@@ -750,7 +762,6 @@
 				TargetAttributes = {
 					555C91A71D0F0731003E84E3 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = SRXXZJ8JG5;
 						LastSwiftMigration = 1030;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -940,6 +951,7 @@
 				3A78C1602325A89D00C23288 /* ExchangeCell.swift in Sources */,
 				3A05BEE0232B292900C56F01 /* ExcPubController.swift in Sources */,
 				3A918F09232A886100F6E580 /* EventSwift.swift in Sources */,
+				9CBFCC992338F14800A8BF0C /* ItemDatabase.swift in Sources */,
 				3A05BEE6232B32AE00C56F01 /* ConfirmedEventController.swift in Sources */,
 				3A78C15E2325A89D00C23288 /* AddCustom.swift in Sources */,
 				3A05BEEA232B32EB00C56F01 /* InterestEventController.swift in Sources */,
@@ -950,6 +962,7 @@
 				3A168543233017C200A5E9E8 /* FavoriteItensController.swift in Sources */,
 				3A816897233136DA00BE9246 /* ArrayControl.swift in Sources */,
 				3A918F03232A7CAB00F6E580 /* CustomFavoriteList.swift in Sources */,
+				9CBFCC9B2338F16D00A8BF0C /* ItemObject.swift in Sources */,
 				3AEC1DD6232FB25A006915E6 /* AddCategorieController.swift in Sources */,
 				3A05BEE4232B299900C56F01 /* EventPubController.swift in Sources */,
 				3AEC1DD4232F3D80006915E6 /* SellerPerfilController.swift in Sources */,
@@ -965,6 +978,7 @@
 				3A918EFB232A6BE000F6E580 /* EventPubCell.swift in Sources */,
 				3A6EBCD62338482B00B6EA15 /* CategorieFilterController.swift in Sources */,
 				3A918EF6232A6B8400F6E580 /* ExchangePubCell.swift in Sources */,
+				9CC6DF1E233A711A00A11F5A /* UserDatabase.swift in Sources */,
 				3AEC1DD8232FB500006915E6 /* CategorieCell.swift in Sources */,
 				3A168545233019B100A5E9E8 /* FavoriteSwift.swift in Sources */,
 				3A918EEF2329733900F6E580 /* ExchangeFavCell.swift in Sources */,
@@ -988,6 +1002,7 @@
 				3A16854E23301EA700A5E9E8 /* PerfilItemController.swift in Sources */,
 				3AEC1DD2232F39B6006915E6 /* ItemDetailController.swift in Sources */,
 				3AEC1DCC232F1786006915E6 /* ProductItemCell.swift in Sources */,
+				9CC6DF1C233A6DBC00A11F5A /* TypeOfRegisterViewController.swift in Sources */,
 				3A0A88902326E17600844477 /* GoalCell.swift in Sources */,
 				3AA60E14232FD64D00EB8D04 /* SellerPerfilCell.swift in Sources */,
 				3AA566A123304A2A00331948 /* MapController.swift in Sources */,
@@ -1172,14 +1187,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Ways/Ways.entitlements;
-				DEVELOPMENT_TEAM = SRXXZJ8JG5;
+				DEVELOPMENT_TEAM = 7FH5Q2A622;
 				INFOPLIST_FILE = Ways/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.Ways;
+				PRODUCT_BUNDLE_IDENTIFIER = com.felipeluna.ways;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -1191,14 +1206,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Ways/Ways.entitlements;
-				DEVELOPMENT_TEAM = SRXXZJ8JG5;
+				DEVELOPMENT_TEAM = 7FH5Q2A622;
 				INFOPLIST_FILE = Ways/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.Ways;
+				PRODUCT_BUNDLE_IDENTIFIER = com.felipeluna.ways;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

@@ -10,11 +10,10 @@ import UIKit
 
 class FilterController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var selectedCategories: [String] = []
     var categorieItem: String?
     var pickerCondition = ["Novo", "Usado"]
     var priceSelected: Int = 100
-    var distanceSelected: Int = 20
+    var distanceSelected: Int = 25
     var isFilterApplied: Bool = false
 
     @IBOutlet weak var condition: UITextField!
@@ -23,31 +22,6 @@ class FilterController: UITableViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var priceSlider: UISlider!
     @IBOutlet weak var distance: UILabel!
     @IBOutlet weak var distanceSlider: UISlider!
-    
-    @IBAction func clearButtom(_ sender: Any) {
-        
-        priceSelected = 100
-        priceSlider.value = Float(priceSelected)
-        price.text = "R$ \(priceSelected)"
-        
-        distanceSelected = 20
-        distanceSlider.value = Float(distanceSelected)
-        distance.text = "\(distanceSelected) km"
-        
-        condition.text = "Novo ou usado"
-        condition.textColor = .lightGray
-        
-        categorie.text = "Selecione uma categoria"
-        
-        isFilterApplied = false
-    }
-    
-    @IBAction func filterButton(_ sender: Any) {
-        
-        isFilterApplied = true
-        performSegue(withIdentifier: "filtrar", sender: nil)
-        
-    }
     
     
     override func viewDidLoad() {
@@ -77,7 +51,6 @@ class FilterController: UITableViewController, UIPickerViewDelegate, UIPickerVie
 
     @objc func doneConditionPicker(){
         self.view.endEditing(true)
-        condition.textColor = .black
     }
 
     @objc func cancelConditionPicker(){
@@ -122,7 +95,7 @@ class FilterController: UITableViewController, UIPickerViewDelegate, UIPickerVie
             priceSlider.value = Float(priceSelected)
             price.text = " R$ \(priceSelected)"
         }
-        if distanceSelected != 20 {
+        if distanceSelected != 25 {
             distanceSlider.value = Float(distanceSelected)
             distance.text = "\(distanceSelected) km"
         }
@@ -130,22 +103,6 @@ class FilterController: UITableViewController, UIPickerViewDelegate, UIPickerVie
 
     @IBAction func returnToFilter(_ segue: UIStoryboardSegue) {
         
-            if let category = segue.source as? CategorieFilterController {
-                self.categorie.text = category.categorias
-                self.selectedCategories = category.selectedCategories
-                print(self.categorie.text)
-            }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier else { return }
-        
-        switch identifier {
-        case "filtrar":
-            print("segue")
-        default:
-            print("unexpected segue identifier")
-        }
     }
     
 }

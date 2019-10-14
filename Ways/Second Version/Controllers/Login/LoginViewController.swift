@@ -33,22 +33,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    @IBAction func registerButton(_ sender: Any) {
-        if let email = email.text, let password = password.text {
-            signUpManager.createUser(email: email, password: password) {[weak self] (success) in
-                guard let `self` = self else { return }
-                var message: String = ""
-                if (success) {
-                    message = "User was sucessfully created."
-                } else {
-                    message = "There was an error."
-                }
-                let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                self.display(alertController: alertController)
-            }
-        }
-    }
+//    @IBAction func registerButton(_ sender: Any) {
+//        self.performSegue(withIdentifier: "registerPage1", sender: nil)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

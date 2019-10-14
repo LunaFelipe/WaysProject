@@ -17,17 +17,23 @@ struct UserDatabase
     var name: String
     var profileType: String
     var contactNumber: String
-    var location: String
+    var locationStreet: String
+    var locationNumber: String
+    var locationState: String
+    var locationCity: String
     var email: String
     
-    init(key:String, name: String, profileType: String, contactNumber: String, location: String, email: String)
+    init(key:String, name: String, profileType: String, contactNumber: String, locationStreet: String, locationNumber: String, locationState: String, locationCity: String, email: String)
     {
         self.ref = nil
         self.key = key
         self.name = name
         self.profileType = profileType
         self.contactNumber = contactNumber
-        self.location = location
+        self.locationStreet = locationStreet
+        self.locationNumber = locationNumber
+        self.locationState = locationState
+        self.locationCity = locationCity
         self.email = email
     }
     
@@ -38,7 +44,10 @@ struct UserDatabase
             let name = value["name"] as? String,
             let profileType = value["profileType"] as? String,
             let contactNumber = value["contactNumber"] as? String,
-            let location = value["location"] as? String,
+            let locationStreet = value["locationStreet"] as? String,
+            let locationNumber = value["locationNumber"] as? String,
+            let locationState = value["locationState"] as? String,
+            let locationCity = value["locationCity"] as? String,
             let email = value["email"] as? String else { return nil }
         
         self.ref = snapshot.ref
@@ -46,7 +55,10 @@ struct UserDatabase
         self.name = name
         self.profileType = profileType
         self.contactNumber = contactNumber
-        self.location = location
+        self.locationStreet = locationStreet
+        self.locationNumber = locationNumber
+        self.locationState = locationState
+        self.locationCity = locationCity
         self.email = email
         
     }
@@ -56,7 +68,10 @@ struct UserDatabase
             "name": name,
             "profileType": profileType,
             "contactNumber": contactNumber,
-            "location" : location,
+            "locationStreet" : locationStreet,
+            "locationNumber" : locationNumber,
+            "locationState" : locationState,
+            "locationCity" : locationCity,
             "email" : email,
         ]
     }

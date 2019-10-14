@@ -1,30 +1,29 @@
 //
-//  RegisterController.swift
+//  RegisterBrechoController.swift
 //  Ways
 //
-//  Created by Felipe Luna Tersi on 19/09/19.
+//  Created by Marina Miranda Aranha on 14/10/19.
 //  Copyright © 2019 IBM. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class RegisterController: UITableViewController {
-
-    @IBOutlet weak var name: UITextField!
+class RegisterBrechoController: UITableViewController {
+    
     @IBOutlet weak var profileType: UITextField!
-    @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var locationStreet: UITextField!
-    @IBOutlet weak var contactNumber: UITextField!
+    @IBOutlet weak var name: UITextField!
     @IBOutlet weak var email: UITextField!
-    @IBOutlet weak var locationCity: UITextField!
-    @IBOutlet weak var locationState: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var contactNumber: UITextField!
+    @IBOutlet weak var locationStreet: UITextField!
     @IBOutlet weak var locationNumber: UITextField!
+    @IBOutlet weak var locationState: UITextField!
+    @IBOutlet weak var locationCity: UITextField!
     
     let signUpManager = FirebaseAuthManager()
-    
-    @IBAction func registerButtom(_ sender: Any) {
 
+    @IBAction func registerButton(_ sender: Any) {
         if let email = email.text, let password = password.text {
             self.signUpManager.createUser(email: email, password: password) {[weak self] (success) in
                 guard let `self` = self else { return }
@@ -36,7 +35,7 @@ class RegisterController: UITableViewController {
 
                     let ref = Database.database().reference()
                     guard let userKey = Auth.auth().currentUser?.uid else {return}
-                ref.child("User-Info").child(userKey).updateChildValues(item.toAnyObject() as! [AnyHashable : Any])
+                ref.child("Brecho-Info").child(userKey).updateChildValues(item.toAnyObject() as! [AnyHashable : Any])
 
                     self.navigationController?.dismiss(animated: true)
 

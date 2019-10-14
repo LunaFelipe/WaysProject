@@ -502,7 +502,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4SC-NI-hXE">
-                                                    <rect key="frame" x="14" y="43" width="345" height="33"/>
+                                                    <rect key="frame" x="14" y="45" width="345" height="33"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1612,9 +1612,6 @@
                                 <state key="normal" title="Esqueceu a senha?">
                                     <color key="titleColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
-                                <connections>
-                                    <segue destination="otI-I8-EyO" kind="show" id="2Nd-Ae-aVg"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="16h-e8-6BG">
                                 <rect key="frame" x="16" y="456" width="343" height="30"/>
@@ -1650,7 +1647,7 @@
                                     <color key="titleColor" red="0.14117647059999999" green="0.54117647059999996" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <action selector="registerButton:" destination="avs-5f-rK7" eventType="touchUpInside" id="SvP-xP-hQf"/>
+                                    <segue destination="otI-I8-EyO" kind="show" id="G2s-CA-s64"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -8,15 +8,27 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapController: UIViewController {
+    
+    
+    @IBOutlet var mapView: MKMapView!
+    
+    let brecho = Brecho(name: "King David Kalakaua",
+      adress: "Waikiki Gateway Park",
+      coordinate: CLLocationCoordinate2D(latitude: -22.895667, longitude: -47.077630))
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 11.0, *) {
+            mapView.register(BrechoMarkerView.self,
+                             forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        }
+        mapView.addAnnotation(brecho)
 
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation
@@ -28,4 +40,10 @@ class MapController: UIViewController {
     }
     */
 
+}
+
+extension CLLocation {
+    func geocode(completion: @escaping (_ placemark: [CLPlacemark]?, _ error: Error?) -> Void)  {
+        CLGeocoder().reverseGeocodeLocation(self, completionHandler: completion)
+    }
 }

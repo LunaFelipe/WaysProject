@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F699FCD23560E9500CC9584 /* Brecho.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F699FCC23560E9500CC9584 /* Brecho.swift */; };
+		2F699FCF2356252B00CC9584 /* BrachoMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F699FCE2356252B00CC9584 /* BrachoMarkerView.swift */; };
 		3A05BEE0232B292900C56F01 /* ExcPubController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A05BEDF232B292900C56F01 /* ExcPubController.swift */; };
 		3A05BEE2232B297300C56F01 /* CustomPubController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A05BEE1232B297300C56F01 /* CustomPubController.swift */; };
 		3A05BEE4232B299900C56F01 /* EventPubController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A05BEE3232B299900C56F01 /* EventPubController.swift */; };
@@ -137,6 +139,8 @@
 /* Begin PBXFileReference section */
 		0DBAC63115FC60B8A4AA21AC /* Pods-WaysTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaysTests.debug.xcconfig"; path = "Target Support Files/Pods-WaysTests/Pods-WaysTests.debug.xcconfig"; sourceTree = "<group>"; };
 		12AA189B4D730182D5ADCCF2 /* Pods-WaysUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaysUITests.release.xcconfig"; path = "Target Support Files/Pods-WaysUITests/Pods-WaysUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2F699FCC23560E9500CC9584 /* Brecho.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brecho.swift; sourceTree = "<group>"; };
+		2F699FCE2356252B00CC9584 /* BrachoMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrachoMarkerView.swift; sourceTree = "<group>"; };
 		3A05BEDF232B292900C56F01 /* ExcPubController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcPubController.swift; sourceTree = "<group>"; };
 		3A05BEE1232B297300C56F01 /* CustomPubController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPubController.swift; sourceTree = "<group>"; };
 		3A05BEE3232B299900C56F01 /* EventPubController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPubController.swift; sourceTree = "<group>"; };
@@ -572,6 +576,8 @@
 			isa = PBXGroup;
 			children = (
 				3AA566A023304A2A00331948 /* MapController.swift */,
+				2F699FCC23560E9500CC9584 /* Brecho.swift */,
+				2F699FCE2356252B00CC9584 /* BrachoMarkerView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -950,6 +956,7 @@
 			files = (
 				3AA108812327D558009A899B /* SpendingCell.swift in Sources */,
 				3A0A888C2326D9F000844477 /* AddGoals.swift in Sources */,
+				2F699FCD23560E9500CC9584 /* Brecho.swift in Sources */,
 				3A05BEE2232B297300C56F01 /* CustomPubController.swift in Sources */,
 				3A78C1602325A89D00C23288 /* ExchangeCell.swift in Sources */,
 				3A05BEE0232B292900C56F01 /* ExcPubController.swift in Sources */,
@@ -968,6 +975,7 @@
 				9CBFCC9B2338F16D00A8BF0C /* ItemObject.swift in Sources */,
 				3AEC1DD6232FB25A006915E6 /* AddCategorieController.swift in Sources */,
 				3A05BEE4232B299900C56F01 /* EventPubController.swift in Sources */,
+				2F699FCF2356252B00CC9584 /* BrachoMarkerView.swift in Sources */,
 				3AEC1DD4232F3D80006915E6 /* SellerPerfilController.swift in Sources */,
 				3A81689E23326DAA00BE9246 /* FirebaseAuthManager.swift in Sources */,
 				3A566251232AAFD3005AC30C /* ScheduleController.swift in Sources */,
@@ -1191,7 +1199,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Ways/Ways.entitlements;
-				DEVELOPMENT_TEAM = 7FH5Q2A622;
+				DEVELOPMENT_TEAM = VZ4Y7Q4FJ2;
 				INFOPLIST_FILE = Ways/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1210,7 +1218,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Ways/Ways.entitlements;
-				DEVELOPMENT_TEAM = 7FH5Q2A622;
+				DEVELOPMENT_TEAM = VZ4Y7Q4FJ2;
 				INFOPLIST_FILE = Ways/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (

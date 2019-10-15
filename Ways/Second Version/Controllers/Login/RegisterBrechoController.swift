@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import CoreLocation
 
 class RegisterBrechoController: UITableViewController {
     
@@ -20,6 +21,8 @@ class RegisterBrechoController: UITableViewController {
     @IBOutlet weak var locationNumber: UITextField!
     @IBOutlet weak var locationState: UITextField!
     @IBOutlet weak var locationCity: UITextField!
+    
+    var address: String = ""
     
     let signUpManager = FirebaseAuthManager()
 
@@ -59,4 +62,24 @@ class RegisterBrechoController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    func buildUserAdress() {
+        // Grouping address information so we can
+        // transform the address in a CLLocationCoordinate2D
+        self.address = locationStreet.text! + ", " +
+                       locationNumber.text! + ", " +
+                       locationState.text! + ", " +
+                       locationCity.text! + ", Brazil"
+        let geocoder = CLGeocoder()
+        
+        geocoder.geocodeAddressString(address, completionHandler: {(placemarks, error) -> Void in
+           if((error) != nil){
+            print("Error", error ?? "Could not get user coordinates")
+           }
+           if let placemark = placemarks?.first {
+              let coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
+              print(coordinates)
+              // Need to send this coordinates to FireBase
+              }
+            })
+    }
 }

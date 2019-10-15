@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 struct Item {
     var title: String
@@ -26,9 +27,11 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
     var searchController: UISearchController? = nil
     var filteredItems: [Item] = []
     
+    private let userID = (Auth.auth().currentUser?.uid)!
+    
     func addItem(item: Item)  {
         
-        ArrayControl.shared.itensList.append(item)
+ //       ArrayControl.shared.itensList.append(item)
         ArrayControl.shared.sellerItemArray.append(item)
         ArrayControl.shared.PerfilItemArray.append(item)
     
@@ -39,7 +42,51 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         
         setUpSearchController()
+        fetchProducts()
     }
+
+    //get user products from database and store them into ArrayControl.shared.userProducts
+    func fetchProducts(){
+        Database.database().reference().child("User").observeSingleEvent(of: .value) { snapshot in
+            print(snapshot.childrenCount) // I got the expected number of items
+            let enumerator = snapshot.children
+            while let rest = enumerator.nextObject() as? DataSnapshot {
+               //fetch from database only products from other users and append in intensList
+                if rest.key != self.userID{
+                    Database.database().reference().child("User").child(rest.key).child("produtos").observe(.childAdded, with: { (snapshot) in
+                           
+                           if let dictionary = snapshot.value as? [String: String]{
+                                
+                                var image: UIImage?
+                                
+                                if let productImageUrl = dictionary["imageUrl"]{
+                                    let url = URL(string: productImageUrl)
+                                    
+                                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                                        if error != nil {
+                                            print(error!)
+                                            return
+                                        }
+                                        
+                                        image = UIImage(data: data!)
+                                        let item = Item(title: dictionary["title"]!, price: dictionary["price"]!, condition: dictionary["condition"]!, categorie: dictionary["categorie"]!, description: dictionary["descript"]!, photo: image!, exchange: dictionary["exchange"]!, isFavorite: false, photo2: image!)
+                                        ArrayControl.shared.itensList.append(item)
+                                        
+                                        DispatchQueue.main.async {
+                                            self.tableView.reloadData()
+                                        }
+                                        
+                                    }).resume()
+                                }
+                                
+                            }
+                        
+                    }, withCancel: nil)
+                    
+                }
+            }
+        }
+   }
     
     fileprivate func setupFilterButtom() {
         searchController?.searchBar.setShowsCancelButton(true, animated: false)
@@ -109,6 +156,7 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "productItemCell") as! ProductItemCell
         let item: Item

@@ -362,7 +362,8 @@ class AddItemController: UITableViewController, UIPickerViewDataSource, UIPicker
                                 return
                             } else {
                                 self.imageUrl = "\(url!)"
-
+                                print("URLLLLLLLLLLLLLLLLLLL")
+                                print(self.imageUrl)
                             }
                         }
                         

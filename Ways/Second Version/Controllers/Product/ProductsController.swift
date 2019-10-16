@@ -26,8 +26,14 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
     //Table View informations
     var searchController: UISearchController? = nil
     var filteredItems: [Item] = []
+    var itemObject = ItemObject()
+    var image: UIImage?
+    var image2: UIImage?
+
     
     private let userID = (Auth.auth().currentUser?.uid)!
+    
+    let dispatchGroup = DispatchGroup()
     
     func addItem(item: Item)  {
         
@@ -35,7 +41,7 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
         ArrayControl.shared.sellerItemArray.append(item)
         ArrayControl.shared.PerfilItemArray.append(item)
     
-        //Adicionando na lista de publicaçõe
+        //Adicionando na lista de publicações
     }
     
     override func viewDidLoad() {
@@ -43,6 +49,7 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
         
         setUpSearchController()
         fetchProducts()
+        
     }
 
     //get user products from database and store them into ArrayControl.shared.userProducts
@@ -56,36 +63,60 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
                     Database.database().reference().child("User").child(rest.key).child("produtos").observe(.childAdded, with: { (snapshot) in
                            
                            if let dictionary = snapshot.value as? [String: String]{
-                                
-                                var image: UIImage?
-                                
+                                                            
+                            self.itemObject.categorie = dictionary["categorie"]
+                            self.itemObject.condition = dictionary["condition"]
+                            self.itemObject.descript = dictionary["descript"]
+                            self.itemObject.exchange = dictionary["exchange"]
+                            self.itemObject.imageUrl = dictionary["imageUrl"]
+                            self.itemObject.price = dictionary["price"]
+                            self.itemObject.title = dictionary["title"]
+                            
                                 if let productImageUrl = dictionary["imageUrl"]{
                                     let url = URL(string: productImageUrl)
-                                    
                                     URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                                        
                                         if error != nil {
                                             print(error!)
                                             return
                                         }
+
+                                        self.image = UIImage(data: data!)!
                                         
-                                        image = UIImage(data: data!)
-                                        let item = Item(title: dictionary["title"]!, price: dictionary["price"]!, condition: dictionary["condition"]!, categorie: dictionary["categorie"]!, description: dictionary["descript"]!, photo: image!, exchange: dictionary["exchange"]!, isFavorite: false, photo2: image!)
-                                        ArrayControl.shared.itensList.append(item)
+                                        let item = Item(title: dictionary["title"]!, price: dictionary["price"]!, condition: dictionary["condition"]!, categorie: dictionary["categorie"]!, description: dictionary["descript"]!, photo: self.image!, exchange: dictionary["exchange"]!, isFavorite: false, photo2: self.image!)
+
+                                    ArrayControl.shared.itensList.append(item)
                                         
-                                        DispatchQueue.main.async {
-                                            self.tableView.reloadData()
-                                        }
-                                        
+                                    DispatchQueue.main.async {
+                                        self.tableView.reloadData()
+                                    }
+
                                     }).resume()
                                 }
-                                
-                            }
-                        
+                            
+                            
+//                            if let productImageUrl2 = dictionary["imageUrl2"]{
+//                                let url = URL(string: productImageUrl2)
+//
+//                                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+//                                    self.dispatchGroup.enter()
+//                                    if error != nil {
+//                                        print(error!)
+//                                        return
+//                                    }
+//
+//                                    self.image2 = UIImage(data: data!)
+//
+//                                }).resume()
+//                            }
+
+                        }
                     }, withCancel: nil)
                     
                 }
             }
         }
+                
    }
     
     fileprivate func setupFilterButtom() {
@@ -125,7 +156,6 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         //Tirar as linhas de adicionar
         let footerView = UIView()
         tableView.tableFooterView = footerView

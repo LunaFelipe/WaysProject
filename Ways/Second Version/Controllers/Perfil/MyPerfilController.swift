@@ -14,6 +14,7 @@ class MyPerfilController: UITableViewController {
     private let userID = (Auth.auth().currentUser?.uid)!
     var yourArray = [[String: Any]]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchProducts()
@@ -63,7 +64,6 @@ class MyPerfilController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.tableView.reloadData()
     }
     

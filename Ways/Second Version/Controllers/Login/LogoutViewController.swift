@@ -13,7 +13,8 @@ import KeychainSwift
 class LogoutViewController: UIViewController {
 
     @IBAction func logoutButtom(_ sender: Any) {
-            
+            ArrayControl.shared.userProducts = []
+            ArrayControl.shared.itensList = []
             let firebaseAuth = Auth.auth()
             do{
                 try firebaseAuth.signOut()

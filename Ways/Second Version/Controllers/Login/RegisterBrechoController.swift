@@ -39,6 +39,8 @@ class RegisterBrechoController: UITableViewController {
                     let ref = Database.database().reference()
                     guard let userKey = Auth.auth().currentUser?.uid else {return}
                 ref.child("Brecho-Info").child(userKey).updateChildValues(item.toAnyObject() as! [AnyHashable : Any])
+                    
+                    self.buildUserAdress()
 
                     self.navigationController?.dismiss(animated: true)
 
@@ -78,7 +80,7 @@ class RegisterBrechoController: UITableViewController {
            if let placemark = placemarks?.first {
               let coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
               print(coordinates)
-              // Need to send this coordinates to FireBase
+              // Need to send these coordinates to FireBase
               }
             })
     }

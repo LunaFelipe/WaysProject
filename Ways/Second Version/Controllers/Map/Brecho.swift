@@ -8,21 +8,29 @@
 
 import Foundation
 import MapKit
+import Contacts
 
 class Brecho: NSObject, MKAnnotation {
-  let name: String?
-  let adress: String
+  let title: String?
+  let address: String
   let coordinate: CLLocationCoordinate2D
   
-  init(name: String, adress: String, coordinate: CLLocationCoordinate2D) {
-    self.name = name
-    self.adress = adress
+  init(title: String, address: String, coordinate: CLLocationCoordinate2D) {
+    self.title = title
+    self.address = address
     self.coordinate = coordinate
     
     super.init()
   }
-  
-  var subtitle: String? {
-    return adress
-  }
+    var subtitle: String? {
+      return address
+    }
+    
+    func mapItem() -> MKMapItem {
+      let addressDict = [CNPostalAddressStreetKey: subtitle!]
+      let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDict)
+      let mapItem = MKMapItem(placemark: placemark)
+      mapItem.name = title
+      return mapItem
+    }
 }

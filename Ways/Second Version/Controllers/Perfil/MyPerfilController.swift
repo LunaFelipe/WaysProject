@@ -18,6 +18,9 @@ class MyPerfilController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchProducts()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     //get user products from database and store them into ArrayControl.shared.userProducts

@@ -370,8 +370,8 @@ class AddItemController: UITableViewController, UIPickerViewDataSource, UIPicker
                 })
             }
             
-            storageRef = Storage.storage().reference().child(currentUser).child(titleItem.text!).child("image2")
-            if let uploadData = photo2.image!.pngData(){
+            storageRef = Storage.storage().reference().child(currentUser).child(titleItem.text!).child("image1")
+            if let uploadData = photo.image!.pngData(){
                 storageRef.putData(uploadData, metadata: nil, completion:
                     { (metadata, error) in
                         
@@ -380,30 +380,35 @@ class AddItemController: UITableViewController, UIPickerViewDataSource, UIPicker
                             return
                         }
                         
-                        var imageRef = Storage.storage().reference().child((metadata?.path)!).child("image1")
+                        var imageRef = Storage.storage().reference().child((metadata?.path)!)
                         
                         imageRef.downloadURL { url, error in
                             if let error = error {
+                                print("ERRO")
                                 print(error)
                                 return
                             } else {
                                 self.imageUrl = "\(url!)"
-                            }
-                        }
-                        
-                        imageRef = Storage.storage().reference().child((metadata?.path)!)
-                        
-                        imageRef.downloadURL { url, error in
-                            if let error = error {
-                                print(error)
-                                return
-                            } else {
-                                self.imageUrl2 = "\(url!)"
-                                let value = ItemDatabase(key: self.titleItem.text!, title: self.titleItem.text!, price: self.price.text!, condition: self.condition.text!, categorie: self.categorie.text!, description: self.descriptionItem.text!, imageUrl: self.imageUrl!, imageUrl2: self.imageUrl2!, exchange: self.output.text!)
+                                let value = ItemDatabase(key: self.titleItem.text!, title: self.titleItem.text!, price: self.price.text!, condition: self.condition.text!, categorie: self.categorie.text!, description: self.descriptionItem.text!, imageUrl: self.imageUrl!, imageUrl2: self.imageUrl!, exchange: self.output.text!)
                                 
                                 self.addItemToDatabase(values: value)
+                                
                             }
                         }
+                        
+//                        imageRef = Storage.storage().reference().child((metadata?.path)!)
+                        
+//                        imageRef.downloadURL { url, error in
+//                            if let error = error {
+//                                print(error)
+//                                return
+//                            } else {
+//                                self.imageUrl2 = "\(url!)"
+//                                let value = ItemDatabase(key: self.titleItem.text!, title: self.titleItem.text!, price: self.price.text!, condition: self.condition.text!, categorie: self.categorie.text!, description: self.descriptionItem.text!, imageUrl: self.imageUrl!, imageUrl2: self.imageUrl!, exchange: self.output.text!)
+//
+//                                self.addItemToDatabase(values: value)
+//                            }
+//                        }
                 })
             }
             

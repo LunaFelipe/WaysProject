@@ -29,7 +29,8 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
     var itemObject = ItemObject()
     var image: UIImage?
     var image2: UIImage?
-
+    
+    @IBOutlet var tableViewProducts: UITableView!
     
     private let userID = (Auth.auth().currentUser?.uid)!
     
@@ -41,12 +42,14 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
         ArrayControl.shared.sellerItemArray.append(item)
         ArrayControl.shared.PerfilItemArray.append(item)
     
-        //Adicionando na lista de publicações
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableViewProducts.delegate = self
+        self.tableViewProducts.dataSource = self
+
         setUpSearchController()
         fetchProducts()
         
@@ -93,22 +96,6 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
 
                                     }).resume()
                                 }
-                            
-                            
-//                            if let productImageUrl2 = dictionary["imageUrl2"]{
-//                                let url = URL(string: productImageUrl2)
-//
-//                                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-//                                    self.dispatchGroup.enter()
-//                                    if error != nil {
-//                                        print(error!)
-//                                        return
-//                                    }
-//
-//                                    self.image2 = UIImage(data: data!)
-//
-//                                }).resume()
-//                            }
 
                         }
                     }, withCancel: nil)
@@ -151,7 +138,6 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
         }
         setupFilterButtom()
         definesPresentationContext = true
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -160,7 +146,6 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
         let footerView = UIView()
         tableView.tableFooterView = footerView
         
-        tableView.reloadData()
         setupFilterButtom()
     }
 
@@ -187,8 +172,7 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "productItemCell") as! ProductItemCell
+        let cell = tableViewProducts.dequeueReusableCell(withIdentifier: "productItemCell") as! ProductItemCell
         let item: Item
         
         if isFiltering() {
@@ -201,19 +185,16 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
         cell.price.text = "R$ \(item.price)"
         cell.condition.text = item.condition
         cell.photo.image = item.photo
-        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let item: Item
         if isFiltering() {
             item = filteredItems[indexPath.row]
         } else {
             item = ArrayControl.shared.itensList[indexPath.row]
         }
-        
         performSegue(withIdentifier: "itemDetail", sender: item)
     }
     

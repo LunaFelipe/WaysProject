@@ -439,6 +439,7 @@
 		3A81689A23326CB400BE9246 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				3A81689D23326DAA00BE9246 /* FirebaseAuthManager.swift */,
 				3AD49B3623327FEF00F6EE6F /* LogoutViewController.swift */,
 				3A81689B23326CCD00BE9246 /* LoginViewController.swift */,
 				3A2A6D9B2333A53700B6D451 /* RegisterController.swift */,
@@ -607,7 +608,6 @@
 			isa = PBXGroup;
 			children = (
 				3A816896233136DA00BE9246 /* ArrayControl.swift */,
-				3A81689D23326DAA00BE9246 /* FirebaseAuthManager.swift */,
 				3A81689A23326CB400BE9246 /* Login */,
 				3A16853923300DCA00A5E9E8 /* Product */,
 				3A16853D2330173000A5E9E8 /* Favorites */,

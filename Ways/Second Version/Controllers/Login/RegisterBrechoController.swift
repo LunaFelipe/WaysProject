@@ -38,7 +38,7 @@ class RegisterBrechoController: UITableViewController {
 
                     let ref = Database.database().reference()
                     guard let userKey = Auth.auth().currentUser?.uid else {return}
-                ref.child("Brecho-Info").child(userKey).updateChildValues(item.toAnyObject() as! [AnyHashable : Any])
+                ref.child("User-Info").child(userKey).updateChildValues(item.toAnyObject() as! [AnyHashable : Any])
                     
                     self.buildUserAdress()
 

@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 
 struct Item {
+    var seller: String
     var title: String
     var price: String
     var condition: String
@@ -58,7 +59,6 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
     //get user products from database and store them into ArrayControl.shared.userProducts
     func fetchProducts(){
         Database.database().reference().child("User").observeSingleEvent(of: .value) { snapshot in
-            print(snapshot.childrenCount) // I got the expected number of items
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? DataSnapshot {
                //fetch from database only products from other users and append in intensList
@@ -66,6 +66,7 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
                     Database.database().reference().child("User").child(rest.key).child("produtos").observe(.childAdded, with: { (snapshot) in
                            
                            if let dictionary = snapshot.value as? [String: String]{
+                            print(dictionary)
                                                             
                             self.itemObject.categorie = dictionary["categorie"]
                             self.itemObject.condition = dictionary["condition"]
@@ -75,27 +76,25 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
                             self.itemObject.price = dictionary["price"]
                             self.itemObject.title = dictionary["title"]
                             
-                                if let productImageUrl = dictionary["imageUrl"]{
-                                    let url = URL(string: productImageUrl)
-                                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                                        
-                                        if error != nil {
-                                            print(error!)
-                                            return
-                                        }
+                            // Create a reference to the file you want to download
+                            let pathReference = Storage.storage().reference(forURL: self.itemObject.imageUrl!)
+                            // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+                            pathReference.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                              if let error = error {
+                                print(error)
+                                return
+                              } else {
+                                   self.image = UIImage(data: data!)
+                                                                   
+                                   let item = Item(seller: rest.key, title: dictionary["title"]!, price: dictionary["price"]!, condition: dictionary["condition"]!, categorie: dictionary["categorie"]!, description: dictionary["descript"]!, photo: self.image!, exchange: dictionary["exchange"]!, isFavorite: false, photo2: self.image!)
 
-                                        self.image = UIImage(data: data!)!
-                                        
-                                        let item = Item(title: dictionary["title"]!, price: dictionary["price"]!, condition: dictionary["condition"]!, categorie: dictionary["categorie"]!, description: dictionary["descript"]!, photo: self.image!, exchange: dictionary["exchange"]!, isFavorite: false, photo2: self.image!)
-
-                                    ArrayControl.shared.itensList.append(item)
-                                        
-                                    DispatchQueue.main.async {
-                                        self.tableView.reloadData()
-                                    }
-
-                                    }).resume()
-                                }
+                                   ArrayControl.shared.itensList.append(item)
+                                   
+                                   DispatchQueue.main.async {
+                                       self.tableView.reloadData()
+                                   }
+                              }
+                            }
 
                         }
                     }, withCancel: nil)

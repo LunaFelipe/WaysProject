@@ -36,31 +36,26 @@ class MyPerfilController: UITableViewController {
                 item.imageUrl = dictionary["imageUrl"]
                 item.price = dictionary["price"]
                 item.title = dictionary["title"]
-                
-                var image: UIImage?
-                
-                if let productImageUrl = item.imageUrl{
-                    let url = URL(string: productImageUrl)
-                    
-                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                        if error != nil {
-                            print(error!)
-                            return
-                        }
-                        
-                        item.image = UIImage(data: data!)
-                        ArrayControl.shared.userProducts.append(item)
-                        
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                        
-                    }).resume()
+                               
+               if let productImageUrl = item.imageUrl{
+                   let pathReference = Storage.storage().reference(forURL: productImageUrl)
+                   pathReference.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                         if let error = error {
+                           print(error)
+                           return
+                         } else {
+                              // Data for "images/island.jpg" is returned
+                              item.image = UIImage(data: data!)
+                              ArrayControl.shared.userProducts.append(item)
+                              
+                              DispatchQueue.main.async {
+                                  self.tableView.reloadData()
+                              }
+                         }
+                   }
                 }
                 
             }
-            print(ArrayControl.shared.userProducts)
-            print(snapshot)
         }, withCancel: nil)
         
     }

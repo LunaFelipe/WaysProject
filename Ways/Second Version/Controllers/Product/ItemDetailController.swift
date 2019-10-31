@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ItemDetailController: UITableViewController {
     
@@ -127,6 +128,8 @@ class ItemDetailController: UITableViewController {
         exchange.text = self.item.exchange
         descriptionItem.text = self.item.description
         
+        fetchSeller()
+        
         if let index = ArrayControl.shared.itensList.firstIndex(of: self.item) {
             if ArrayControl.shared.itensList[index].isFavorite == true {
                 likePressed = true
@@ -137,6 +140,17 @@ class ItemDetailController: UITableViewController {
             }
         }
         self.view.setNeedsLayout()
+        
+    }
+    
+    func fetchSeller(){
+        Database.database().reference().child("User-info").child(self.item.seller).observe(.childAdded, with: { (snapshot) in
+             if let dictionary = snapshot.value as? [String: String]{
+                self.name.text = dictionary["name"]
+                self.type.text = dictionary["profileType"]
+            }
+            
+        }, withCancel: nil)
         
     }
     

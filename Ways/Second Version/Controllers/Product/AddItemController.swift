@@ -332,7 +332,7 @@ class AddItemController: UITableViewController, UIPickerViewDataSource, UIPicker
             //add item do firebase
             let currentUser = Auth.auth().currentUser!.uid
 
-            itensScreen?.addItem(item: Item(title: titleItem.text ?? "",
+            itensScreen?.addItem(item: Item(seller: currentUser, title: titleItem.text ?? "",
                                             price: price.text ?? "",
                                             condition: condition.text ?? "",
                                             categorie: categorie.text ?? "",

@@ -66,7 +66,6 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
                     Database.database().reference().child("User").child(rest.key).child("produtos").observe(.childAdded, with: { (snapshot) in
                            
                            if let dictionary = snapshot.value as? [String: String]{
-                            print(dictionary)
                                                             
                             self.itemObject.categorie = dictionary["categorie"]
                             self.itemObject.condition = dictionary["condition"]
@@ -155,7 +154,6 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
     }
     
     @objc func filterTapped(_ sender: UIButton) {
-        print("Filtrar")
         
         performSegue(withIdentifier: "filterSegue", sender: nil)
     }

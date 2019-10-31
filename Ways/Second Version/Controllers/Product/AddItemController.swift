@@ -362,8 +362,6 @@ class AddItemController: UITableViewController, UIPickerViewDataSource, UIPicker
                                 return
                             } else {
                                 self.imageUrl = "\(url!)"
-                                print("URLLLLLLLLLLLLLLLLLLL")
-                                print(self.imageUrl)
                             }
                         }
                         
@@ -395,20 +393,6 @@ class AddItemController: UITableViewController, UIPickerViewDataSource, UIPicker
                                 
                             }
                         }
-                        
-//                        imageRef = Storage.storage().reference().child((metadata?.path)!)
-                        
-//                        imageRef.downloadURL { url, error in
-//                            if let error = error {
-//                                print(error)
-//                                return
-//                            } else {
-//                                self.imageUrl2 = "\(url!)"
-//                                let value = ItemDatabase(key: self.titleItem.text!, title: self.titleItem.text!, price: self.price.text!, condition: self.condition.text!, categorie: self.categorie.text!, description: self.descriptionItem.text!, imageUrl: self.imageUrl!, imageUrl2: self.imageUrl!, exchange: self.output.text!)
-//
-//                                self.addItemToDatabase(values: value)
-//                            }
-//                        }
                 })
             }
             

@@ -144,14 +144,14 @@ class ItemDetailController: UITableViewController {
     }
     
     func fetchSeller(){
-        Database.database().reference().child("User-info").child(self.item.seller).observe(.childAdded, with: { (snapshot) in
-             if let dictionary = snapshot.value as? [String: String]{
-                self.name.text = dictionary["name"]
-                self.type.text = dictionary["profileType"]
-            }
+        Database.database().reference().child("User-Info").child(self.item.seller).observe(.value, with: { (snapshot) in
+            
+            let userDict = snapshot.value as! [String: Any]
+            
+            self.name.text = userDict["name"] as? String
+            self.type.text = userDict["profileType"] as? String
             
         }, withCancel: nil)
-        
     }
     
     @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {

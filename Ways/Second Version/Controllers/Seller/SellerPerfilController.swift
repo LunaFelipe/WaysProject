@@ -7,16 +7,60 @@
 //
 
 import UIKit
+import Firebase
 
 class SellerPerfilController: UITableViewController {
 
-//    static let shared = SellerPerfilController()
+    var sellerID: String?
+    var sellerName: String?
+    var sellerType: String?
+    var itemObject = ItemObject()
+    var image: UIImage?
+
     
+    override func viewDidLoad() {
+        fetchSellerProducts()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+    
+    func fetchSellerProducts(){
+        Database.database().reference().child("User").child(self.sellerID!).child("produtos").observe(.childAdded, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: String]{
+                
+               if let productImageUrl = dictionary["imageUrl"]{
+                   let pathReference = Storage.storage().reference(forURL: productImageUrl)
+                   pathReference.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                         if let error = error {
+                           print(error)
+                           return
+                         } else {
+                            let item = Item(seller: self.sellerID!,
+                                            title: dictionary["title"]!,
+                                            price: dictionary["price"]!,
+                                            condition: dictionary["condition"]!,
+                                            categorie: dictionary["categorie"]!,
+                                            description: dictionary["descript"]!,
+                                            photo: UIImage(data: data!)!,
+                                            exchange: dictionary["exchange"]!,
+                                            isFavorite: false,
+                                            photo2: UIImage(data: data!)!)
+                              
+                              ArrayControl.shared.sellerItemArray.append(item)
+                              
+                              DispatchQueue.main.async {
+                                  self.tableView.reloadData()
+                              }
+                         }
+                   }
+                }
+                
+            }
+        }, withCancel: nil)
         
-        self.tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,6 +84,8 @@ class SellerPerfilController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
             let cell = tableView.dequeueReusableCell(withIdentifier: "sellerPerfilCell") as? SellerPerfilCell
+            cell?.name.text = self.sellerName
+            cell?.type.text = self.sellerType
         
             return cell
     }

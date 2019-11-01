@@ -216,6 +216,17 @@ class ItemDetailController: UITableViewController {
         // Para atualizar o current page é necessário converter o float para Int
         pageView.currentPage = Int(page)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToSeller" {
+            if let detail = segue.destination as? SellerPerfilController {
+                detail.sellerID = self.item.seller
+                detail.sellerName = self.name.text
+                detail.sellerType = self.type.text
+            }
+        }
+    }
+    
 }
 
 

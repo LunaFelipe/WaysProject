@@ -501,7 +501,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4SC-NI-hXE">
-                                                    <rect key="frame" x="14" y="43" width="345" height="33"/>
+                                                    <rect key="frame" x="14" y="45" width="345" height="33"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1453,9 +1453,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="name" destination="axj-rB-ZNu" id="q3k-k3-HdO"/>
-                                    <outlet property="products" destination="E6K-LU-9hS" id="hxQ-0Z-d1J"/>
-                                    <outlet property="type" destination="yvX-37-LZp" id="D6u-Ez-iw4"/>
+                                    <outlet property="name" destination="axj-rB-ZNu" id="CcU-WY-8aC"/>
+                                    <outlet property="products" destination="E6K-LU-9hS" id="edq-dp-q16"/>
+                                    <outlet property="type" destination="yvX-37-LZp" id="Wz5-t3-ky2"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="53" id="xIT-OD-0Fe">

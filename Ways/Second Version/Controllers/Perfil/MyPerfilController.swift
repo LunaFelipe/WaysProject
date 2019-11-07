@@ -11,6 +11,9 @@ import Firebase
 
 class MyPerfilController: UITableViewController {
     
+    var name: String?
+    var type: String?
+    
     private let userID = (Auth.auth().currentUser?.uid)!
     var yourArray = [[String: Any]]()
     
@@ -18,9 +21,22 @@ class MyPerfilController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchProducts()
+        fetchUserInfos()
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    
+    func fetchUserInfos(){
+        Database.database().reference().child("User-Info").child(self.userID).observe(.value, with: { (snapshot) in
+            
+            let userDict = snapshot.value as! [String: Any]
+            
+            self.name = userDict["name"] as? String
+            self.type = userDict["profileType"] as? String
+            
+        }, withCancel: nil)
     }
     
     //get user products from database and store them into ArrayControl.shared.userProducts
@@ -85,6 +101,9 @@ class MyPerfilController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "perfilCell") as? PerfilCell
+        
+        cell?.name.text = self.name
+        cell?.type.text = self.type
         
         return cell
     }

@@ -19,6 +19,7 @@ class SellerPerfilController: UITableViewController {
 
     
     override func viewDidLoad() {
+        ArrayControl.shared.sellerItemArray.removeAll()
         fetchSellerProducts()
     }
     

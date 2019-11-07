@@ -57,7 +57,6 @@ class ItemDetailController: UITableViewController {
         if likePressed == false {
             likePressed = true
             self.item.isFavorite = true
-//            print(ProductsController.shared.itensList)
             if ArrayControl.shared.itensList.contains(self.item){
                 if let index = ArrayControl.shared.itensList.firstIndex(of: self.item){
                     ArrayControl.shared.itensList[index].isFavorite = true

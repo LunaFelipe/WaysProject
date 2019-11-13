@@ -72,7 +72,6 @@
 		3A78C1682325A89D00C23288 /* AddEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A78C1592325A89C00C23288 /* AddEvent.swift */; };
 		3A78C1692325A89D00C23288 /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A78C15A2325A89C00C23288 /* EventDetail.swift */; };
 		3A816897233136DA00BE9246 /* ArrayControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A816896233136DA00BE9246 /* ArrayControl.swift */; };
-		3A816899233268A800BE9246 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A816898233268A700BE9246 /* GoogleService-Info.plist */; };
 		3A81689C23326CCD00BE9246 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81689B23326CCD00BE9246 /* LoginViewController.swift */; };
 		3A81689E23326DAA00BE9246 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81689D23326DAA00BE9246 /* FirebaseAuthManager.swift */; };
 		3A918EED2329717000F6E580 /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A918EEC2329717000F6E580 /* FavoriteController.swift */; };
@@ -111,6 +110,9 @@
 		555C91CC1D0F0731003E84E3 /* WaysUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C91CB1D0F0731003E84E3 /* WaysUITests.swift */; };
 		89D48B951B0A477DB8C47A16 /* BMSCredentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82624385358A41C58F2B5299 /* BMSCredentials.plist */; };
 		9266130C57EBA266D844CC24 /* Pods_WaysTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7420FE314772B9D78E8892 /* Pods_WaysTests.framework */; };
+		9C7FF2FB237C4284009CC0A9 /* Switcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7FF2FA237C4284009CC0A9 /* Switcher.swift */; };
+		9C7FF2FD237C44BF009CC0A9 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7FF2FC237C44BE009CC0A9 /* NavigationViewController.swift */; };
+		9C7FF301237C5869009CC0A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C7FF300237C5868009CC0A9 /* GoogleService-Info.plist */; };
 		9C86938A2355070A00D9F00F /* RegisterBrechoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8693892355070A00D9F00F /* RegisterBrechoController.swift */; };
 		9CBFCC992338F14800A8BF0C /* ItemDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBFCC982338F14800A8BF0C /* ItemDatabase.swift */; };
 		9CBFCC9B2338F16D00A8BF0C /* ItemObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBFCC9A2338F16D00A8BF0C /* ItemObject.swift */; };
@@ -204,7 +206,6 @@
 		3A78C1592325A89C00C23288 /* AddEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEvent.swift; sourceTree = "<group>"; };
 		3A78C15A2325A89C00C23288 /* EventDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
 		3A816896233136DA00BE9246 /* ArrayControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArrayControl.swift; path = Product/ArrayControl.swift; sourceTree = "<group>"; };
-		3A816898233268A700BE9246 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A81689B23326CCD00BE9246 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3A81689D23326DAA00BE9246 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		3A81689F23326DF800BE9246 /* Ways.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ways.entitlements; sourceTree = "<group>"; };
@@ -251,6 +252,9 @@
 		66CDF627E753A6268F473762 /* Pods-Ways.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ways.release.xcconfig"; path = "Target Support Files/Pods-Ways/Pods-Ways.release.xcconfig"; sourceTree = "<group>"; };
 		82624385358A41C58F2B5299 /* BMSCredentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BMSCredentials.plist; sourceTree = "<group>"; };
 		82BF1C9EBDF7A882CBD85814 /* Pods-WaysTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaysTests.release.xcconfig"; path = "Target Support Files/Pods-WaysTests/Pods-WaysTests.release.xcconfig"; sourceTree = "<group>"; };
+		9C7FF2FA237C4284009CC0A9 /* Switcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switcher.swift; sourceTree = "<group>"; };
+		9C7FF2FC237C44BE009CC0A9 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		9C7FF300237C5868009CC0A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9C8693892355070A00D9F00F /* RegisterBrechoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBrechoController.swift; sourceTree = "<group>"; };
 		9CBFCC982338F14800A8BF0C /* ItemDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDatabase.swift; sourceTree = "<group>"; };
 		9CBFCC9A2338F16D00A8BF0C /* ItemObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemObject.swift; sourceTree = "<group>"; };
@@ -598,6 +602,7 @@
 				3AEC1DCA232F16B2006915E6 /* Controllers */,
 				9CBFCC982338F14800A8BF0C /* ItemDatabase.swift */,
 				9CBFCC9A2338F16D00A8BF0C /* ItemObject.swift */,
+				9C7FF2FA237C4284009CC0A9 /* Switcher.swift */,
 				9CC6DF1B233A6DBC00A11F5A /* TypeOfRegisterViewController.swift */,
 				9CC6DF1D233A711A00A11F5A /* UserDatabase.swift */,
 			);
@@ -614,6 +619,7 @@
 				3AA5669F23304A0600331948 /* Map */,
 				3A16854623301DA100A5E9E8 /* Perfil */,
 				3A16853823300A7700A5E9E8 /* Seller */,
+				9C7FF2FC237C44BE009CC0A9 /* NavigationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -648,10 +654,10 @@
 				555C91AB1D0F0731003E84E3 /* AppDelegate.swift */,
 				555C91AD1D0F0731003E84E3 /* ViewController.swift */,
 				555C91AF1D0F0731003E84E3 /* Main.storyboard */,
+				9C7FF300237C5868009CC0A9 /* GoogleService-Info.plist */,
 				555C91B21D0F0731003E84E3 /* Assets.xcassets */,
 				555C91B41D0F0731003E84E3 /* LaunchScreen.storyboard */,
 				555C91B71D0F0731003E84E3 /* Info.plist */,
-				3A816898233268A700BE9246 /* GoogleService-Info.plist */,
 				3AEC1DC8232F16A2006915E6 /* Second Version */,
 				3AEC1DC7232F1683006915E6 /* First Version */,
 			);
@@ -829,7 +835,7 @@
 				89D48B951B0A477DB8C47A16 /* BMSCredentials.plist in Resources */,
 				3A05BEF1232B3B3800C56F01 /* ItemCustomization.storyboard in Resources */,
 				3A05BEF3232B3B4600C56F01 /* AddCustomization.storyboard in Resources */,
-				3A816899233268A800BE9246 /* GoogleService-Info.plist in Resources */,
+				9C7FF301237C5869009CC0A9 /* GoogleService-Info.plist in Resources */,
 				3A05BEF7232B3BD900C56F01 /* AddEvent.storyboard in Resources */,
 				3A05BEFB232B3CCA00C56F01 /* InterestEvent.storyboard in Resources */,
 				3A05BEF5232B3BCE00C56F01 /* Event.storyboard in Resources */,
@@ -1007,6 +1013,7 @@
 				3A918EF1232977C200F6E580 /* CustomFavCell.swift in Sources */,
 				3A56625F232AC4ED005AC30C /* CustomFavoriteDetail.swift in Sources */,
 				3A78C15D2325A89D00C23288 /* CustomCell.swift in Sources */,
+				9C7FF2FD237C44BF009CC0A9 /* NavigationViewController.swift in Sources */,
 				555C91AC1D0F0731003E84E3 /* AppDelegate.swift in Sources */,
 				3A566255232AB1AD005AC30C /* EventConfirmedCell.swift in Sources */,
 				3A78C1692325A89D00C23288 /* EventDetail.swift in Sources */,
@@ -1028,6 +1035,7 @@
 				3A56625D232AC395005AC30C /* ExchangeFavoriteDetail.swift in Sources */,
 				3A918F05232A823100F6E580 /* ExchangeSwift.swift in Sources */,
 				3A2A6D9C2333A53700B6D451 /* RegisterController.swift in Sources */,
+				9C7FF2FB237C4284009CC0A9 /* Switcher.swift in Sources */,
 				3A918EED2329717000F6E580 /* FavoriteController.swift in Sources */,
 				3A81689C23326CCD00BE9246 /* LoginViewController.swift in Sources */,
 				3A0C8387232FD42B00660504 /* SellerItemCell.swift in Sources */,

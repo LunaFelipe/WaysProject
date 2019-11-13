@@ -53,13 +53,19 @@ class ProductsController: UITableViewController, UISearchBarDelegate, CLLocation
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if Auth.auth().currentUser != nil {
+            print("LOGADO")
+        } else {
+           print("NAO")
+        }
+           
         
         self.tableViewProducts.delegate = self
         self.tableViewProducts.dataSource = self
 
         setUpSearchController()
         fetchProducts()
-        fetchUser()
+//        fetchUser()
         
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
@@ -80,16 +86,16 @@ class ProductsController: UITableViewController, UISearchBarDelegate, CLLocation
         print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
     
-    func fetchUser(){
-        Database.database().reference().child("User-Info").child(self.userID).observe(.value, with: { (snapshot) in
-            
-            let userDict = snapshot.value as! [String: Any]
-            
-            self.latitude = userDict["locationCity"] as? String
-            self.longitude = userDict["locationNumber"] as? String
-            
-        }, withCancel: nil)
-    }
+//    func fetchUser(){
+//        Database.database().reference().child("User-Info").child(self.userID).observe(.value, with: { (snapshot) in
+//
+//            let userDict = snapshot.value as! [String: Any]
+//
+//            self.latitude = userDict["locationCity"] as? String
+//            self.longitude = userDict["locationNumber"] as? String
+//
+//        }, withCancel: nil)
+//    }
 
     //get user products from database and store them into ArrayControl.shared.userProducts
     func fetchProducts(){
@@ -140,21 +146,28 @@ class ProductsController: UITableViewController, UISearchBarDelegate, CLLocation
    }
     
     fileprivate func setupFilterButtom() {
-        searchController?.searchBar.setShowsCancelButton(true, animated: false)
-        // Costumize cancel button to a filter button
-        for subView1 in (searchController?.searchBar.subviews)! {
-            for subView2 in subView1.subviews {
-                if subView2.isKind(of: UIButton.self) {
-                    let customizedCancelButton: UIButton = subView2 as! UIButton
-                    customizedCancelButton.isEnabled = true
-                    customizedCancelButton.setTitle("", for: .normal)
-                    let image1 = UIImage(named: "favorito")
-                    customizedCancelButton.setBackgroundImage(image1, for: .normal)
-                    customizedCancelButton.addTarget(self, action: #selector(filterTapped), for: .touchUpInside)
-                }
+            searchController?.searchBar.setShowsCancelButton(true, animated: false)
+            // Costumize cancel button to a filter button
+            for subView1 in (searchController?.searchBar.subviews)! {
+    //            for subView2 in subView1.subviews {
+    //                if subView2.isKind(of: UIButton.self) {
+    //                    let customizedCancelButton: UIButton = subView2 as! UIButton
+    //                    customizedCancelButton.isEnabled = true
+    //                    customizedCancelButton.setTitle("", for: .normal)
+    //                    let image1 = UIImage(named: "favorito")
+    //                    customizedCancelButton.setBackgroundImage(image1, for: .normal)
+    //                    customizedCancelButton.addTarget(self, action: #selector(filterTapped), for: .touchUpInside)
+    //                }
+    //            }
+                let subView2 = subView1.subviews[1].subviews[1]
+                let customizedCancelButton: UIButton = subView2 as! UIButton
+                customizedCancelButton.isEnabled = true
+                customizedCancelButton.setTitle("", for: .normal)
+                let image1 = UIImage(named: "filter")
+                customizedCancelButton.setBackgroundImage(image1, for: .normal)
+                customizedCancelButton.addTarget(self, action: #selector(filterTapped), for: .touchUpInside)
             }
         }
-    }
     
     func setUpSearchController() {
         searchController = UISearchController(searchResultsController: nil)

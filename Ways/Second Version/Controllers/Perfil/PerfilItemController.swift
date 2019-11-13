@@ -50,6 +50,8 @@ class PerfilItemController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(item.title)
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.imgTapped(_:)))
         photo.addGestureRecognizer(tap)
         

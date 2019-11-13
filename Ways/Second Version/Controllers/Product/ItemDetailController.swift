@@ -15,6 +15,8 @@ class ItemDetailController: UITableViewController {
 
     var likePressed: Bool = false
     var isPerfilHidden = false
+    var ref: DatabaseReference!
+
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var type: UILabel!
@@ -56,13 +58,21 @@ class ItemDetailController: UITableViewController {
         
         if likePressed == false {
             likePressed = true
-            self.item.isFavorite = true
+            
+//            //add to database
+//            ref = Database.database().reference()
+//            guard let userKey = Auth.auth().currentUser?.uid else {return}
+//
+//
+//            ref.child("User-Favorites").child(userKey).child("produtos").setValue(["title": self.item.title, "seller-id": self.item.seller])
+//
+                        
             if ArrayControl.shared.itensList.contains(self.item){
                 if let index = ArrayControl.shared.itensList.firstIndex(of: self.item){
                     ArrayControl.shared.itensList[index].isFavorite = true
                 }
             }
-            
+
             if ArrayControl.shared.sellerItemArray.contains(self.item){
                 if let index = ArrayControl.shared.sellerItemArray.firstIndex(of: self.item){
                     ArrayControl.shared.sellerItemArray[index].isFavorite = true
@@ -72,21 +82,25 @@ class ItemDetailController: UITableViewController {
             ArrayControl.shared.favoriteArray.append(self.item)
         } else {
             likePressed = false
+            
+            //remover do banco de dados
+            
+            
             self.item.isFavorite = false
             favorite.image = UIImage (named: "heart")
-            
+
             if ArrayControl.shared.itensList.contains(self.item){
                 if let index = ArrayControl.shared.itensList.firstIndex(of: self.item){
                     ArrayControl.shared.itensList[index].isFavorite = false
                 }
             }
-            
+
             if ArrayControl.shared.sellerItemArray.contains(self.item){
                 if let index = ArrayControl.shared.sellerItemArray.firstIndex(of: self.item){
                     ArrayControl.shared.sellerItemArray[index].isFavorite = false
                 }
             }
-            
+
             while ArrayControl.shared.favoriteArray.contains(self.item) {
                 if let index = ArrayControl.shared.favoriteArray.firstIndex(of: self.item){
                     ArrayControl.shared.favoriteArray.remove(at: index)
@@ -117,6 +131,7 @@ class ItemDetailController: UITableViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
+                
         super.viewWillAppear(true)
         
         titleItem.text = self.item.title
@@ -187,9 +202,10 @@ class ItemDetailController: UITableViewController {
         sender.view?.removeFromSuperview()
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.imgTapped(_:)))
         photo.addGestureRecognizer(tap)
         

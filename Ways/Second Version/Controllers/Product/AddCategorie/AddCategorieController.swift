@@ -12,12 +12,10 @@ class AddCategorieController: UITableViewController {
     
     var sections = ["Vestuario", "Calçados", "Acessórios" ]
     var items = [["Camisa", "Camiseta", "Polo", "Jaqueta", "Moletom", "Corta Vento", "Calça", "Bermuda", "Shorts" ], ["Tênis", "Bota", "Sapato", "Chinelo", "Slipe on"  ], ["Mochila", "Bolsa", "Pochete", "Shoulder Bag", "Relógio", "Óculos", "Pulseiras" ]]
-//    var categories:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        categories = ["Bermuda", "Bonés", "Blusa", "Calça", "Camisa", "Camiseta", "Chapéus", "Chinelo", "Moletom", "Polo", "Saia", "Sandalias", "Shorts", "Tênis", "Vestido", "Bolsa", "Mochila", "Pochete", "Meia" ]
+
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

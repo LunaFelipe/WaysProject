@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import CoreLocation
+import MapKit
 
 struct Item {
     var seller: String
@@ -22,7 +24,7 @@ struct Item {
     var photo2: UIImage
 }
 
-class ProductsController: UITableViewController, UISearchBarDelegate {
+class ProductsController: UITableViewController, UISearchBarDelegate, CLLocationManagerDelegate{
     
     //Table View informations
     var searchController: UISearchController? = nil
@@ -30,6 +32,10 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
     var itemObject = ItemObject()
     var image: UIImage?
     var image2: UIImage?
+    var latitude: String?
+    var longitude: String?
+    
+    let locationManager = CLLocationManager()
     
     @IBOutlet var tableViewProducts: UITableView!
     
@@ -53,7 +59,36 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
 
         setUpSearchController()
         fetchProducts()
+        fetchUser()
         
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
+    
+    func fetchUser(){
+        Database.database().reference().child("User-Info").child(self.userID).observe(.value, with: { (snapshot) in
+            
+            let userDict = snapshot.value as! [String: Any]
+            
+            self.latitude = userDict["locationCity"] as? String
+            self.longitude = userDict["locationNumber"] as? String
+            
+        }, withCancel: nil)
     }
 
     //get user products from database and store them into ArrayControl.shared.userProducts
@@ -187,11 +222,14 @@ class ProductsController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item: Item
+        
         if isFiltering() {
             item = filteredItems[indexPath.row]
         } else {
+
             item = ArrayControl.shared.itensList[indexPath.row]
         }
+
         performSegue(withIdentifier: "itemDetail", sender: item)
     }
     
@@ -309,4 +347,3 @@ extension UIView {
         subviews.forEach { $0.removeLayerAnimationsRecursively() }
     }
 }
-

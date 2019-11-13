@@ -40,33 +40,6 @@ func createUser(email: String, password: String, completionBlock: @escaping (_ s
     }
 }
 
-//Sign In method is not here because the segue doesnt work
-//    func signIn(email: String, password: String, completionBlock: @escaping (_ success: Bool) -> Void) {
-//        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-//            if error == nil && (user?.user.isEmailVerified)! {
-//
-//                self.completeSignIn(id: (user?.user.uid)!)
-//                print("dsasasasa")
-//
-//                let storyboard = UIStoryboard(name: "MyStoryboardName", bundle: nil)
-//                let vc = storyboard.instantiateViewController(withIdentifier: "LogIn") as! LoginViewController
-//                // Alternative way to present the new view controller
-////                LoginViewController().showLogOut()
-//                //perform segue here!!!!!
-//                print("volteii")
-//            } else {
-//                Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-//                    if error != nil {
-//                        print("cant sign in user")
-//                    } else {
-//                        self.completeSignIn(id: (user?.user.uid)!)
-//                        LoginViewController().performSegue(withIdentifier: "login", sender: nil)
-//                    }
-//                }
-//            }
-//        }
-//    }
-
 func completeSignIn(id: String){
     keyChain.set(id, forKey: "uid")
 }

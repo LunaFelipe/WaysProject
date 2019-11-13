@@ -32,11 +32,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
-//    @IBAction func registerButton(_ sender: Any) {
-//        self.performSegue(withIdentifier: "registerPage1", sender: nil)
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         password.delegate = self

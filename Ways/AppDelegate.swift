@@ -7,9 +7,6 @@ import UIKit
 import BMSCore
 import Firebase
 
-
-
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -22,23 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         myBMSClient.requestTimeout = 10.0 // seconds
         FirebaseApp.configure()
 
-        
-
-        
-
-        
-        
-        
-
         return true
     }
-
-    
-    
-    
-
-    
-
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

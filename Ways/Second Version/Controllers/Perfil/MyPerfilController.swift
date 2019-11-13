@@ -27,7 +27,6 @@ class MyPerfilController: UITableViewController {
         }
     }
     
-    
     func fetchUserInfos(){
         Database.database().reference().child("User-Info").child(self.userID).observe(.value, with: { (snapshot) in
             
